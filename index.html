@@ -81,32 +81,27 @@
     // URL DE TU PROYECTO DE GOOGLE (AQUÍ ES DONDE ESTÁ EL DASHBOARD REAL)
     const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxD0bY2h58MyCwbvGXjE0NeQ1CCGBu2sbfSz7k1_rapvwXUA7HmLMTxOm1DbkblUNoFEg/exec";
 
-    document.getElementById('loginForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const messageDiv = document.getElementById('message');
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const messageDiv = document.getElementById('message');
 
-      // Si estamos en GitHub (No existe 'google')
-      if (typeof google === 'undefined') {
-        messageDiv.innerHTML = `
-          <div style="margin-top:20px; padding:15px; border-radius:12px; background:rgba(30, 60, 114, 0.05); border:1px solid #1e3c72;">
-            <p style="color: #1e3c72; font-weight: 700; margin:0;">
-              <i class="fas fa-sync-alt fa-spin"></i> EN BREVE SERÁS REDIRECCIONADO/A...
-            </p>
-          </div>`;
+  // Mensaje que pediste: Profesional y directo
+  messageDiv.innerHTML = `
+    <div style="margin-top:20px; padding:15px; border-radius:12px; background:rgba(30, 60, 114, 0.05); border:1px solid #1e3c72;">
+      <p style="color: #1e3c72; font-weight: 700; font-size:1em; margin:0;">
+        <i class="fas fa-sync-alt fa-spin"></i> EN BREVE SERÁS REDIRECCIONADO/A A LA PLATAFORMA...
+      </p>
+      <p style="color: #666; font-size:0.85em; margin:8px 0 0 0;">
+        Abriendo conexión segura con tus cursos.
+      </p>
+    </div>`;
 
-        // Redirigimos a la puerta real de Google Apps Script
-        setTimeout(() => { window.location.href = APPS_SCRIPT_URL; }, 2000);
-
-      } else {
-        // Si estamos en Apps Script (El login real funciona)
-        google.script.run.withSuccessHandler(function(html){
-          document.open(); document.write(html); document.close();
-        }).doPost({
-          email: document.getElementById('email').value,
-          password: document.getElementById('password').value
-        });
-      }
-    });
+  // REDIRECCIÓN AUTOMÁTICA AL APPS SCRIPT REAL
+  setTimeout(function() {
+    // ESTA ES TU URL DE IMPLEMENTACIÓN (LA QUE TERMINA EN /exec)
+    window.location.href = "https://script.google.com/macros/s/AKfycbxD0bY2h58MyCwbvGXjE0NeQ1CCGBu2sbfSz7k1_rapvwXUA7HmLMTxOm1DbkblUNoFEg/exec"; 
+  }, 1800);
+});
 
     function toggleHugo() {
       const modal = document.getElementById('hugoModal');
