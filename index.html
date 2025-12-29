@@ -148,30 +148,45 @@
   </div>
 
   <script>
-    document.getElementById('loginForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      const messageDiv = document.getElementById('message');
+ document.getElementById('loginForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const messageDiv = document.getElementById('message');
 
-      // DETECTOR DE ENTORNO INTELIGENTE
-      if (typeof google !== 'undefined' && google.script && google.script.run) {
-        // MODO PRODUCCIÓN (Apps Script)
-        messageDiv.innerHTML = '<p style="color: #1e3c72; font-weight: 600; margin-top: 15px;">Iniciando sesión...</p>';
-        google.script.run
-          .withSuccessHandler(function(htmlString) {
-            if (htmlString) {
-              document.open(); document.write(htmlString); document.close();
-            } else {
-              messageDiv.innerHTML = '<p style="color: #e74c3c; margin-top: 15px;">Credenciales no válidas.</p>';
-            }
-          })
-          .doPost({ email: email, password: password });
-      } else {
-        // MODO DEMO (GitHub Pages)
-        messageDiv.innerHTML = '<p style="color: #27ae60; font-weight: 600; margin-top: 15px;">¡Modo Demo Activo! <br> En Apps Script esto iniciaría sesión automáticamente.</p>';
-      }
-    });
+  // 1. DETECTOR DE ENTORNO
+  if (typeof google !== 'undefined' && google.script && google.script.run) {
+    // MODO PRODUCCIÓN (Estás en Google Apps Script)
+    messageDiv.innerHTML = '<p style="color: #1e3c72; font-weight: 600; margin-top: 15px;">Iniciando sesión...</p>';
+    google.script.run
+      .withSuccessHandler(function(htmlString) {
+        if (htmlString) {
+          document.open(); document.write(htmlString); document.close();
+        } else {
+          messageDiv.innerHTML = '<p style="color: #e74c3c; margin-top: 15px;">Credenciales no válidas.</p>';
+        }
+      })
+      .doPost({ 
+        email: document.getElementById('email').value, 
+        password: document.getElementById('password').value 
+      });
+  } else {
+    // 2. MODO REDIRECCIÓN (Estás en GitHub)
+    messageDiv.innerHTML = `
+      <div style="margin-top:20px; padding:15px; border-radius:12px; background:rgba(30, 60, 114, 0.05); border:1px solid #1e3c72;">
+        <p style="color: #1e3c72; font-weight: 700; font-size:1em; margin:0;">
+          <i class="fas fa-sync-alt fa-spin"></i> EN BREVE SERÁS REDIRECCIONADO/A...
+        </p>
+        <p style="color: #666; font-size:0.85em; margin:8px 0 0 0;">
+          Estamos conectando con el servidor seguro de alumnos.
+        </p>
+      </div>`;
+
+    // Redirección automática tras 2 segundos
+    setTimeout(function() {
+      // REEMPLAZA ESTA URL POR LA DE TU PÁGINA DE LOGIN EN APPS SCRIPT
+      window.location.href = "TU_URL_DE_APPS_SCRIPT_AQUI"; 
+    }, 2000);
+  }
+});
 
     function toggleHugo() {
       const modal = document.getElementById('hugoModal');
