@@ -9,37 +9,63 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   
   <style>
-    :root { --platform-dark: #1a1f36; --platform-blue: #1e3c72; --accent-green: #28a745; }
+    :root { 
+      --platform-dark: #1a1f36; 
+      --platform-blue: #1e3c72; 
+      --accent-green: #28a745; 
+      --accent-blue: #3b82f6;
+    }
+    
     html, body { height: 100%; margin: 0; padding: 0; overflow: hidden; }
 
-    /* FONDO CON CAPA NÍTIDA */
+    /* FONDO Y OVERLAY */
     .bg-container {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
       background-image: url('https://res.cloudinary.com/dlnrsadbc/image/upload/v1767020899/FOTO_LOGIN_PLATAFORMA_ok3et0.avif'); 
-      background-size: cover; background-position: center; filter: brightness(0.7); z-index: -1;
+      background-size: cover; background-position: center; filter: brightness(0.7); z-index: -1; [cite: 590]
     }
     .bg-overlay {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: linear-gradient(135deg, rgba(30, 60, 114, 0.4) 0%, rgba(26, 31, 54, 0.6) 100%); z-index: 0;
+      background: linear-gradient(135deg, rgba(30, 60, 114, 0.4) 0%, rgba(26, 31, 54, 0.6) 100%); z-index: 0; [cite: 602]
     }
 
-    body { font-family: 'Open Sans', sans-serif; display: flex; align-items: center; justify-content: flex-start; min-height: 100vh; padding-left: 8%; position: relative; }
+    body { 
+      font-family: 'Open Sans', sans-serif; 
+      display: flex; 
+      align-items: center; 
+      justify-content: flex-start; 
+      min-height: 100vh; 
+      padding-left: 8%; 
+      position: relative; 
+    }
 
+    /* CAJA DE BIENVENIDA */
     .login-box {
       background: #ffffff; padding: 50px; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.5); 
-      width: 100%; max-width: 450px; text-align: center; position: relative; z-index: 10;
+      width: 100%; max-width: 450px; text-align: center; position: relative; z-index: 10; [cite: 615-625]
     }
 
     .brand-logo { margin-top: -115px; margin-bottom: 20px; }
-    .brand-logo img { width: 160px; height: 160px; object-fit: cover; border-radius: 50%; border: 6px solid white; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+    .brand-logo img { width: 160px; height: 160px; object-fit: cover; border-radius: 50%; border: 6px solid white; box-shadow: 0 10px 25px rgba(0,0,0,0.3); [cite: 745] }
 
     h1 { font-family: 'Montserrat', sans-serif; color: var(--platform-dark); font-size: 2.2em; margin-bottom: 5px; }
     h2 { font-size: 1.1em; color: #4b5563; margin-bottom: 25px; font-weight: 400; line-height: 1.4; }
 
-    .promo-badge {
-      display: inline-block; background: var(--accent-green); color: white; padding: 6px 18px; border-radius: 20px;
-      font-size: 0.85em; font-weight: 700; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;
+    /* CONTENEDOR DE BADGES */
+    .badges-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
     }
+
+    .promo-badge {
+      display: inline-block; padding: 6px 14px; border-radius: 20px;
+      font-size: 0.8em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: white;
+    }
+    
+    .promo-badge.free { background: var(--accent-blue); box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3); }
+    .promo-badge.premium { background: var(--accent-green); box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3); }
 
     .welcome-text { font-size: 1.05em; color: #374151; margin-bottom: 35px; line-height: 1.6; }
 
@@ -52,73 +78,35 @@
     .btn-access:hover { background: var(--platform-blue); transform: translateY(-3px); box-shadow: 0 15px 30px rgba(26, 31, 54, 0.3); }
 
     /* HUGO BOT BUBBLE */
-    .hugo-bot-bubble { position: fixed; bottom: 30px; right: 30px; width: 70px; height: 70px; background: linear-gradient(135deg, #30D5C8, #00b894); border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.3); border: 3px solid white; z-index: 100; transition: 0.3s; }
+    .hugo-bot-bubble { position: fixed; bottom: 30px; right: 30px; width: 70px; height: 70px; background: linear-gradient(135deg, #30D5C8, #00b894); border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.3); border: 3px solid white; z-index: 100; transition: 0.3s; [cite: 763-765] }
     .hugo-bot-bubble:hover { transform: scale(1.1); }
 
-    /* MODAL */
+    /* MODAL OPTIMIZADO */
     .hugo-modal {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(26, 31, 54, 0.85);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(10px);
-  }
-
-    
-   .hugo-modal.active {
-    display: flex;
-  }
-    .hugo-content {
-    width: 95%; /* Más ancho en pantallas pequeñas */
-    max-width: 1200px; /* Aumentamos el ancho máximo */
-    height: 92vh; /* Más alargado: ocupa el 92% de la altura de la pantalla */
-    background: white;
-    border-radius: 20px; /* Bordes un poco más suaves */
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 40px 100px rgba(0,0,0,0.6);
-    transform: scale(0.9);
-    opacity: 0;
-    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-.hugo-modal.active .hugo-content {
-    transform: scale(1);
-    opacity: 1;
-  }
-    .hugo-close {
-    position: absolute;
-    top: 15px;
-    right: 25px;
-    font-size: 35px;
-    color: #ffffff !important;
-    cursor: pointer;
-    z-index: 2001;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-  }
-
-    iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: block;
-  }
-    
-    @media (max-width: 768px) 
-    .hugo-content {
-      width: 98%; /* Casi total en móviles */
-      height: 95vh; /* Casi total en altura para móviles */
-      border-radius: 15px;
+      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(26, 31, 54, 0.85); z-index: 1000; justify-content: center; align-items: center; backdrop-filter: blur(10px);
     }
-    .hugo-close {
-      top: 10px;
-      right: 15px;
-      font-size: 30px;
+    .hugo-modal.active { display: flex; }
+    
+    .hugo-content {
+      width: 95%; max-width: 1200px; height: 92vh; background: white; border-radius: 20px;
+      position: relative; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+      transform: scale(0.9); opacity: 0; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-    { body { padding-left: 0; justify-content: center; } .login-box { width: 92%; padding: 40px 25px; } }
+    .hugo-modal.active .hugo-content { transform: scale(1); opacity: 1; }
+    
+    .hugo-close { position: absolute; top: 15px; right: 25px; font-size: 35px; color: #ffffff !important; cursor: pointer; z-index: 2001; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+
+    iframe { width: 100%; height: 100%; border: none; display: block; }
+    
+    /* RESPONSIVE CORREGIDO */
+    @media (max-width: 768px) {
+      body { padding-left: 0; justify-content: center; }
+      .login-box { width: 92%; padding: 40px 25px; }
+      .hugo-content { width: 98%; height: 95vh; border-radius: 15px; }
+      .hugo-close { top: 10px; right: 15px; font-size: 30px; }
+      .badges-container { flex-direction: row; font-size: 0.7em; }
+    }
   </style>
 </head>
 <body>
@@ -131,18 +119,21 @@
       <img src="https://res.cloudinary.com/dlnrsadbc/image/upload/v1762869486/Gemini_Generated_Image_nm1t21nm1t21nm1t_s7w9li.png" alt="Hugo Alvigini">
     </div>
     
-    <div class="promo-badge"><i class="fas fa-crown"></i> Acceso Premium</div>
+    <div class="badges-container">
+      <div class="promo-badge free"><i class="fas fa-gift"></i> Curso Gratuito</div>
+      <div class="promo-badge premium"><i class="fas fa-crown"></i> Acceso Premium</div>
+    </div>
     
     <h1>Hugo Alvigini</h1>
     <h2>Herramientas de Productividad y Automatización</h2>
     
     <p class="welcome-text">
-      Tu camino hacia el éxito comienza aquí. Accede a tu contenido exclusivo y lleva tu negocio al siguiente nivel hoy mismo.
+      Tu camino hacia el éxito comienza aquí. Accede a tu contenido gratuito y premium para llevar tu emprendimiento al siguiente nivel hoy mismo. 
     </p>
 
     <a href="https://script.google.com/macros/s/AKfycby0d3lmpWy_JKb-JObmsi8yL71alS_EfELD_bm63irK2U-Mxm1V4u_KkvlkprNt96ZO/exec" class="btn-access">
-      Ingresar a mis Cursos
-    </a>
+      Ingresar a la Academia
+    </a> [cite: 509]
   </div>
 
   <div class="hugo-bot-bubble" onclick="toggleHugo()">
@@ -152,7 +143,7 @@
   <div id="hugoModal" class="hugo-modal">
     <span class="hugo-close" onclick="toggleHugo()">&times;</span>
     <div class="hugo-content">
-      <iframe src="https://hugo85ar.github.io/HugoBot/"></iframe>
+      <iframe src="https://hugo85ar.github.io/HugoBot/"></iframe> [cite: 769]
     </div>
   </div>
 
