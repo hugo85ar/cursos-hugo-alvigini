@@ -152,33 +152,36 @@
   e.preventDefault();
   const messageDiv = document.getElementById('message');
 
-  // 1. DETECTOR DE ENTORNO
   if (typeof google !== 'undefined' && google.script && google.script.run) {
-    // MODO PRODUCCIÓN (Estás en Google Apps Script)
-    messageDiv.innerHTML = '<p style="color: #1e3c72; font-weight: 600; margin-top: 15px;">Iniciando sesión...</p>';
+    // MODO PRODUCCIÓN (Estás en Apps Script, el login funciona normal)
+    messageDiv.innerHTML = '<p style="color: #1e3c72; font-weight: 600; margin-top: 15px;">Validando acceso...</p>';
     google.script.run
-      .withSuccessHandler(function(htmlString) {
-        if (htmlString) {
-          document.open(); document.write(htmlString); document.close();
-        } else {
-          messageDiv.innerHTML = '<p style="color: #e74c3c; margin-top: 15px;">Credenciales no válidas.</p>';
-        }
+      .withSuccessHandler(function(html){
+        document.open(); document.write(html); document.close();
       })
-      .doPost({ 
+      .doPost({
         email: document.getElementById('email').value, 
-        password: document.getElementById('password').value 
+        password: document.getElementById('password').value
       });
   } else {
-    // 2. MODO REDIRECCIÓN (Estás en GitHub)
+    // MODO REDIRECCIÓN (Estás en GitHub)
     messageDiv.innerHTML = `
       <div style="margin-top:20px; padding:15px; border-radius:12px; background:rgba(30, 60, 114, 0.05); border:1px solid #1e3c72;">
         <p style="color: #1e3c72; font-weight: 700; font-size:1em; margin:0;">
           <i class="fas fa-sync-alt fa-spin"></i> EN BREVE SERÁS REDIRECCIONADO/A...
         </p>
         <p style="color: #666; font-size:0.85em; margin:8px 0 0 0;">
-          Estamos conectando con el servidor seguro de alumnos.
+          Abriendo conexión segura con la plataforma de cursos.
         </p>
       </div>`;
+
+    // REDIRECCIÓN A LA WEB APP (No al archivo HTML)
+    setTimeout(function() {
+      // AQUÍ DEBES PEGAR LA URL QUE TERMINA EN /exec
+      window.location.href = "https://script.google.com/macros/s/AKfycbxD0bY2h58MyCwbvGXjE0NeQ1CCGBu2sbfSz7k1_rapvwXUA7HmLMTxOm1DbkblUNoFEg/exec"; 
+    }, 2000);
+  }
+});
 
     // Redirección automática tras 2 segundos
     setTimeout(function() {
