@@ -1,5 +1,28 @@
+La respuesta corta es no, no es necesario (ni recomendable) incluir los otros archivos HTML (como CURSO.HTML o DASHBOARD_CURSOS.HTML) en GitHub si quieres que la plataforma sea funcional.
+
+Aquí te explico la razón técnica y comercial de por qué solo debemos dejar el index.html en GitHub:
+
+1. ¿Por qué NO subirlos a GitHub?
+GitHub es estático: GitHub solo puede mostrar el diseño, pero no puede ejecutar las funciones de Google (google.script.run) que tus alumnos necesitan para ver sus progresos o datos reales.
+
+Confusión de archivos: El error 404 que viste ocurrió porque el código buscó el archivo dentro de GitHub, pero GitHub no tiene acceso a la "inteligencia" de Google para procesar esos archivos.
+
+Privacidad: Tus archivos de cursos y dashboards están más seguros dentro del ecosistema de Google Apps Script, donde tú controlas quién entra con su correo y contraseña.
+
+2. La estrategia "Híbrida" ganadora
+La configuración ideal para tu marca Hugo Alvigini es la siguiente:
+
+En GitHub: Dejas únicamente el index.html. Este sirve como tu "Fachada Premium", una puerta de entrada hermosa, rápida y con el HugoBOT 100% operativo.
+
+En Google Apps Script: Dejas toda la "Maquinaria". Allí es donde viven CURSO.HTML, DASHBOARD_CURSOS.HTML y la base de datos de tus alumnos.
+
+3. Código Final para GitHub (Repara HugoBOT y la Redirección)
+Copia este código completo y pégalo en tu archivo index.html de GitHub. He corregido el error que bloqueaba el bot y asegurado que la redirección te lleve a la "puerta real" de Google:
+
+HTML
+
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
   <base target="_top">
   <meta charset="UTF-8">
@@ -9,110 +32,43 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   
   <style>
-    :root {
-      --platform-dark: #1a1f36;
-      --platform-blue: #1e3c72;
-      --accent-green: #5cb85c;
-    }
+    :root { --platform-dark: #1a1f36; --platform-blue: #1e3c72; --accent-green: #5cb85c; }
+    html, body { height: 100%; margin: 0; padding: 0; overflow: hidden; font-family: 'Open Sans', sans-serif; }
 
-    html, body { height: 100%; margin: 0; padding: 0; overflow: hidden; }
-
-    /* 1. FONDO NÍTIDO Y PROFESIONAL */
+    /* FONDO NÍTIDO */
     .bg-container {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
       background-image: url('https://res.cloudinary.com/dlnrsadbc/image/upload/v1767020899/FOTO_LOGIN_PLATAFORMA_ok3et0.avif'); 
-      background-size: cover; background-position: center;
-      filter: brightness(0.8); z-index: -1;
+      background-size: cover; background-position: center; filter: brightness(0.8); z-index: -1;
     }
-
     .bg-overlay {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: linear-gradient(135deg, rgba(30, 60, 114, 0.3) 0%, rgba(26, 31, 54, 0.5) 100%);
-      z-index: 0;
+      background: linear-gradient(135deg, rgba(30, 60, 114, 0.3) 0%, rgba(26, 31, 54, 0.5) 100%); z-index: 0;
     }
 
-    body {
-      font-family: 'Open Sans', sans-serif;
-      display: flex; align-items: center; justify-content: flex-start;
-      min-height: 100vh; padding-left: 8%;
-    }
-
-    /* 2. CAJA DE LOGIN PREMIUM */
+    /* CAJA DE LOGIN */
     .login-box {
-      background: #ffffff; padding: 50px; border-radius: 20px;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.5); 
-      width: 100%; max-width: 450px; text-align: center;
-      position: relative; z-index: 10;
+      background: #ffffff; padding: 50px; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.5); 
+      width: 100%; max-width: 450px; text-align: center; position: relative; z-index: 10; margin-left: 8%;
     }
+    .brand-logo img { width: 160px; height: 160px; border-radius: 50%; border: 6px solid white; box-shadow: 0 10px 25px rgba(0,0,0,0.3); margin-top: -115px; }
+    h1 { font-family: 'Montserrat', sans-serif; color: var(--platform-dark); font-size: 2.2em; margin: 10px 0; }
+    .promo-badge { display: inline-block; background: var(--accent-green); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.85em; font-weight: 700; margin-bottom: 20px; }
+    input { width: 100%; padding: 14px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
+    .btn-primary { width: 100%; padding: 16px; background: var(--platform-dark); color: white; border: none; border-radius: 10px; font-size: 1.1em; font-weight: 700; cursor: pointer; transition: 0.3s; }
 
-    .brand-logo { margin-top: -115px; margin-bottom: 20px; }
-    .brand-logo img {
-      width: 160px; height: 160px; object-fit: cover; border-radius: 50%;
-      border: 6px solid white; box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    }
+    /* BOT BUBBLE */
+    .hugo-bot-bubble { position: fixed; bottom: 30px; right: 30px; width: 70px; height: 70px; background: linear-gradient(135deg, #30D5C8, #00b894); border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.3); border: 3px solid white; z-index: 100; }
 
-    h1 { font-family: 'Montserrat', sans-serif; color: var(--platform-dark); font-size: 2.2em; margin-bottom: 5px; }
-    h2 { font-size: 1em; color: #666; margin-bottom: 30px; font-weight: 400; }
-
-    .promo-badge {
-      display: inline-block; background: var(--accent-green); color: white;
-      padding: 5px 15px; border-radius: 20px; font-size: 0.85em;
-      font-weight: 700; margin-bottom: 20px; text-transform: uppercase;
-    }
-
-    input {
-      width: 100%; padding: 14px; margin-bottom: 15px;
-      border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box;
-    }
-
-    .btn-primary {
-      width: 100%; padding: 16px; background: var(--platform-dark); color: white;
-      border: none; border-radius: 10px; font-size: 1.1em; font-weight: 700;
-      cursor: pointer; transition: 0.3s;
-    }
-
-    /* 3. HUGO BOT MODAL Y BURBUJA */
-    .hugo-bot-bubble {
-      position: fixed; bottom: 30px; right: 30px;
-      width: 70px; height: 70px;
-      background: linear-gradient(135deg, #30D5C8, #00b894);
-      border-radius: 50%; display: flex; justify-content: center; align-items: center;
-      cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      border: 3px solid white; z-index: 100;
-    }
-
-    .hugo-modal {
-      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(26, 31, 54, 0.85); z-index: 1000;
-      justify-content: center; align-items: center;
-      backdrop-filter: blur(10px); transition: all 0.5s ease;
-    }
-
+    /* MODAL */
+    .hugo-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(26, 31, 54, 0.85); z-index: 1000; justify-content: center; align-items: center; backdrop-filter: blur(10px); transition: all 0.5s ease; }
     .hugo-modal.active { display: flex; }
-
-    .hugo-content {
-      width: 90%; max-width: 1000px; height: 85vh;
-      background: white; border-radius: 25px; overflow: hidden;
-      position: relative; box-shadow: 0 40px 100px rgba(0,0,0,0.6);
-      transform: scale(0.8) translateY(50px); opacity: 0;
-      transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-
+    .hugo-content { width: 90%; max-width: 1000px; height: 85vh; background: white; border-radius: 25px; position: relative; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.6); transform: scale(0.8) translateY(50px); opacity: 0; transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
     .hugo-modal.active .hugo-content { transform: scale(1) translateY(0); opacity: 1; }
-
-    /* CRUZ BLANCA DE CIERRE */
-    .hugo-close {
-      position: absolute; top: 20px; right: 30px; font-size: 40px;
-      color: #ffffff !important; cursor: pointer; z-index: 2001;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-    }
-
+    .hugo-close { position: absolute; top: 20px; right: 30px; font-size: 40px; color: #ffffff !important; cursor: pointer; z-index: 2001; font-weight: bold; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
     iframe { width: 100%; height: 100%; border: none; }
 
-    @media (max-width: 768px) {
-      body { padding-left: 0; justify-content: center; }
-      .login-box { width: 92%; }
-    }
+    @media (max-width: 768px) { body { padding-left: 0; justify-content: center; } .login-box { width: 92%; padding: 40px 25px; } }
   </style>
 </head>
 <body>
@@ -121,24 +77,19 @@
   <div class="bg-overlay"></div>
 
   <div class="login-box">
-    <div class="brand-logo">
-      <img src="https://res.cloudinary.com/dlnrsadbc/image/upload/v1762869486/Gemini_Generated_Image_nm1t21nm1t21nm1t_s7w9li.png" alt="Hugo">
-    </div>
+    <div class="brand-logo"><img src="https://res.cloudinary.com/dlnrsadbc/image/upload/v1762869486/Gemini_Generated_Image_nm1t21nm1t21nm1t_s7w9li.png" alt="Hugo"></div>
     <div class="promo-badge"><i class="fas fa-rocket"></i> Acceso Exclusivo 2024</div>
     <h1>Hugo Alvigini</h1>
     <h2>Lleva tu emprendimiento al siguiente nivel.</h2>
-    
     <form id="loginForm">
       <input type="email" id="email" placeholder="tu@email.com" required>
       <input type="password" id="password" placeholder="Tu contraseña" required>
-      <button type="submit" class="btn-primary" id="loginBtn">Entrar a mis Cursos</button>
+      <button type="submit" class="btn-primary">Entrar a mis Cursos</button>
     </form>
     <div id="message"></div>
   </div>
 
-  <div class="hugo-bot-bubble" onclick="toggleHugo()">
-    <i class="fas fa-comments" style="color: white; font-size: 30px;"></i>
-  </div>
+  <div class="hugo-bot-bubble" onclick="toggleHugo()"><i class="fas fa-comments" style="color: white; font-size: 30px;"></i></div>
 
   <div id="hugoModal" class="hugo-modal">
     <span class="hugo-close" onclick="toggleHugo()">&times;</span>
@@ -148,48 +99,35 @@
   </div>
 
   <script>
- document.getElementById('loginForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const messageDiv = document.getElementById('message');
+    // URL DE TU PROYECTO DE GOOGLE (AQUÍ ES DONDE ESTÁ EL DASHBOARD REAL)
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxD0bY2h58MyCwbvGXjE0NeQ1CCGBu2sbfSz7k1_rapvwXUA7HmLMTxOm1DbkblUNoFEg/exec";
 
-  if (typeof google !== 'undefined' && google.script && google.script.run) {
-    // MODO PRODUCCIÓN (Estás en Apps Script, el login funciona normal)
-    messageDiv.innerHTML = '<p style="color: #1e3c72; font-weight: 600; margin-top: 15px;">Validando acceso...</p>';
-    google.script.run
-      .withSuccessHandler(function(html){
-        document.open(); document.write(html); document.close();
-      })
-      .doPost({
-        email: document.getElementById('email').value, 
-        password: document.getElementById('password').value
-      });
-  } else {
-    // MODO REDIRECCIÓN (Estás en GitHub)
-    messageDiv.innerHTML = `
-      <div style="margin-top:20px; padding:15px; border-radius:12px; background:rgba(30, 60, 114, 0.05); border:1px solid #1e3c72;">
-        <p style="color: #1e3c72; font-weight: 700; font-size:1em; margin:0;">
-          <i class="fas fa-sync-alt fa-spin"></i> EN BREVE SERÁS REDIRECCIONADO/A...
-        </p>
-        <p style="color: #666; font-size:0.85em; margin:8px 0 0 0;">
-          Abriendo conexión segura con la plataforma de cursos.
-        </p>
-      </div>`;
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const messageDiv = document.getElementById('message');
 
-    // REDIRECCIÓN A LA WEB APP (No al archivo HTML)
-    setTimeout(function() {
-      // AQUÍ DEBES PEGAR LA URL QUE TERMINA EN /exec
-      window.location.href = "https://script.google.com/macros/s/AKfycbxD0bY2h58MyCwbvGXjE0NeQ1CCGBu2sbfSz7k1_rapvwXUA7HmLMTxOm1DbkblUNoFEg/exec"; 
-    }, 2000);
-  }
-});
+      // Si estamos en GitHub (No existe 'google')
+      if (typeof google === 'undefined') {
+        messageDiv.innerHTML = `
+          <div style="margin-top:20px; padding:15px; border-radius:12px; background:rgba(30, 60, 114, 0.05); border:1px solid #1e3c72;">
+            <p style="color: #1e3c72; font-weight: 700; margin:0;">
+              <i class="fas fa-sync-alt fa-spin"></i> EN BREVE SERÁS REDIRECCIONADO/A...
+            </p>
+          </div>`;
 
-    // Redirección automática tras 2 segundos
-    setTimeout(function() {
-      // REEMPLAZA ESTA URL POR LA DE TU PÁGINA DE LOGIN EN APPS SCRIPT
-      window.location.href = "TU_URL_DE_APPS_SCRIPT_AQUI"; 
-    }, 2000);
-  }
-});
+        // Redirigimos a la puerta real de Google Apps Script
+        setTimeout(() => { window.location.href = APPS_SCRIPT_URL; }, 2000);
+
+      } else {
+        // Si estamos en Apps Script (El login real funciona)
+        google.script.run.withSuccessHandler(function(html){
+          document.open(); document.write(html); document.close();
+        }).doPost({
+          email: document.getElementById('email').value,
+          password: document.getElementById('password').value
+        });
+      }
+    });
 
     function toggleHugo() {
       const modal = document.getElementById('hugoModal');
