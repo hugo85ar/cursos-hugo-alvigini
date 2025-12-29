@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceso | Hugo Alvigini</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --platform-dark: #1a1f36;
+      --platform-blue: #1e3c72;
+      --accent-green: #5cb85c;
+    }
+
+    html, body { height: 100%; margin: 0; padding: 0; overflow: hidden; }
+
+    /* 1. FONDO NÍTIDO Y PROFESIONAL */
+    .bg-container {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background-image: url('https://res.cloudinary.com/dlnrsadbc/image/upload/v1767020899/FOTO_LOGIN_PLATAFORMA_ok3et0.avif'); 
+      background-size: cover; background-position: center;
+      filter: brightness(0.8); z-index: -1;
+    }
+
+    .bg-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(135deg, rgba(30, 60, 114, 0.3) 0%, rgba(26, 31, 54, 0.5) 100%);
+      z-index: 0;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      display: flex; align-items: center; justify-content: flex-start;
+      min-height: 100vh; padding-left: 8%;
+    }
+
+    /* 2. CAJA DE LOGIN PREMIUM */
+    .login-box {
+      background: #ffffff; padding: 50px; border-radius: 20px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.5); 
+      width: 100%; max-width: 450px; text-align: center;
+      position: relative; z-index: 10;
+    }
+
+    .brand-logo { margin-top: -115px; margin-bottom: 20px; }
+    .brand-logo img {
+      width: 160px; height: 160px; object-fit: cover; border-radius: 50%;
+      border: 6px solid white; box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    h1 { font-family: 'Montserrat', sans-serif; color: var(--platform-dark); font-size: 2.2em; margin-bottom: 5px; }
+    h2 { font-size: 1em; color: #666; margin-bottom: 30px; font-weight: 400; }
+
+    .promo-badge {
+      display: inline-block; background: var(--accent-green); color: white;
+      padding: 5px 15px; border-radius: 20px; font-size: 0.85em;
+      font-weight: 700; margin-bottom: 20px; text-transform: uppercase;
+    }
+
+    input {
+      width: 100%; padding: 14px; margin-bottom: 15px;
+      border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box;
+    }
+
+    .btn-primary {
+      width: 100%; padding: 16px; background: var(--platform-dark); color: white;
+      border: none; border-radius: 10px; font-size: 1.1em; font-weight: 700;
+      cursor: pointer; transition: 0.3s;
+    }
+
+    /* 3. HUGO BOT MODAL Y BURBUJA */
+    .hugo-bot-bubble {
+      position: fixed; bottom: 30px; right: 30px;
+      width: 70px; height: 70px;
+      background: linear-gradient(135deg, #30D5C8, #00b894);
+      border-radius: 50%; display: flex; justify-content: center; align-items: center;
+      cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      border: 3px solid white; z-index: 100;
+    }
+
+    .hugo-modal {
+      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(26, 31, 54, 0.85); z-index: 1000;
+      justify-content: center; align-items: center;
+      backdrop-filter: blur(10px); transition: all 0.5s ease;
+    }
+
+    .hugo-modal.active { display: flex; }
+
+    .hugo-content {
+      width: 90%; max-width: 1000px; height: 85vh;
+      background: white; border-radius: 25px; overflow: hidden;
+      position: relative; box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+      transform: scale(0.8) translateY(50px); opacity: 0;
+      transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .hugo-modal.active .hugo-content { transform: scale(1) translateY(0); opacity: 1; }
+
+    /* CRUZ BLANCA DE CIERRE */
+    .hugo-close {
+      position: absolute; top: 20px; right: 30px; font-size: 40px;
+      color: #ffffff !important; cursor: pointer; z-index: 2001;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    iframe { width: 100%; height: 100%; border: none; }
+
+    @media (max-width: 768px) {
+      body { padding-left: 0; justify-content: center; }
+      .login-box { width: 92%; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-container"></div>
+  <div class="bg-overlay"></div>
+
+  <div class="login-box">
+    <div class="brand-logo">
+      <img src="https://res.cloudinary.com/dlnrsadbc/image/upload/v1762869486/Gemini_Generated_Image_nm1t21nm1t21nm1t_s7w9li.png" alt="Hugo">
+    </div>
+    <div class="promo-badge"><i class="fas fa-rocket"></i> Acceso Exclusivo 2024</div>
+    <h1>Hugo Alvigini</h1>
+    <h2>Lleva tu emprendimiento al siguiente nivel.</h2>
+    
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="tu@email.com" required>
+      <input type="password" id="password" placeholder="Tu contraseña" required>
+      <button type="submit" class="btn-primary" id="loginBtn">Entrar a mis Cursos</button>
+    </form>
+    <div id="message"></div>
+  </div>
+
+  <div class="hugo-bot-bubble" onclick="toggleHugo()">
+    <i class="fas fa-comments" style="color: white; font-size: 30px;"></i>
+  </div>
+
+  <div id="hugoModal" class="hugo-modal">
+    <span class="hugo-close" onclick="toggleHugo()">&times;</span>
+    <div class="hugo-content">
+      <iframe src="https://hugo85ar.github.io/HugoBot/"></iframe>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const messageDiv = document.getElementById('message');
+
+      // DETECTOR DE ENTORNO INTELIGENTE
+      if (typeof google !== 'undefined' && google.script && google.script.run) {
+        // MODO PRODUCCIÓN (Apps Script)
+        messageDiv.innerHTML = '<p style="color: #1e3c72; font-weight: 600; margin-top: 15px;">Iniciando sesión...</p>';
+        google.script.run
+          .withSuccessHandler(function(htmlString) {
+            if (htmlString) {
+              document.open(); document.write(htmlString); document.close();
+            } else {
+              messageDiv.innerHTML = '<p style="color: #e74c3c; margin-top: 15px;">Credenciales no válidas.</p>';
+            }
+          })
+          .doPost({ email: email, password: password });
+      } else {
+        // MODO DEMO (GitHub Pages)
+        messageDiv.innerHTML = '<p style="color: #27ae60; font-weight: 600; margin-top: 15px;">¡Modo Demo Activo! <br> En Apps Script esto iniciaría sesión automáticamente.</p>';
+      }
+    });
+
+    function toggleHugo() {
+      const modal = document.getElementById('hugoModal');
+      if (!modal.classList.contains('active')) {
+        modal.style.display = 'flex';
+        setTimeout(() => { modal.classList.add('active'); }, 10);
+      } else {
+        modal.classList.remove('active');
+        setTimeout(() => { modal.style.display = 'none'; }, 500);
+      }
+    }
+  </script>
+</body>
+</html>
