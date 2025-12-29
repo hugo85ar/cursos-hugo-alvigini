@@ -1,25 +1,4 @@
-La respuesta corta es no, no es necesario (ni recomendable) incluir los otros archivos HTML (como CURSO.HTML o DASHBOARD_CURSOS.HTML) en GitHub si quieres que la plataforma sea funcional.
 
-Aquí te explico la razón técnica y comercial de por qué solo debemos dejar el index.html en GitHub:
-
-1. ¿Por qué NO subirlos a GitHub?
-GitHub es estático: GitHub solo puede mostrar el diseño, pero no puede ejecutar las funciones de Google (google.script.run) que tus alumnos necesitan para ver sus progresos o datos reales.
-
-Confusión de archivos: El error 404 que viste ocurrió porque el código buscó el archivo dentro de GitHub, pero GitHub no tiene acceso a la "inteligencia" de Google para procesar esos archivos.
-
-Privacidad: Tus archivos de cursos y dashboards están más seguros dentro del ecosistema de Google Apps Script, donde tú controlas quién entra con su correo y contraseña.
-
-2. La estrategia "Híbrida" ganadora
-La configuración ideal para tu marca Hugo Alvigini es la siguiente:
-
-En GitHub: Dejas únicamente el index.html. Este sirve como tu "Fachada Premium", una puerta de entrada hermosa, rápida y con el HugoBOT 100% operativo.
-
-En Google Apps Script: Dejas toda la "Maquinaria". Allí es donde viven CURSO.HTML, DASHBOARD_CURSOS.HTML y la base de datos de tus alumnos.
-
-3. Código Final para GitHub (Repara HugoBOT y la Redirección)
-Copia este código completo y pégalo en tu archivo index.html de GitHub. He corregido el error que bloqueaba el bot y asegurado que la redirección te lleve a la "puerta real" de Google:
-
-HTML
 
 <!DOCTYPE html>
 <html lang="es">
