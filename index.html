@@ -85,7 +85,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
   e.preventDefault();
   const messageDiv = document.getElementById('message');
 
-  // Mensaje que pediste: Profesional y directo
+  // Mensaje de transición profesional
   messageDiv.innerHTML = `
     <div style="margin-top:20px; padding:15px; border-radius:12px; background:rgba(30, 60, 114, 0.05); border:1px solid #1e3c72;">
       <p style="color: #1e3c72; font-weight: 700; font-size:1em; margin:0;">
@@ -96,13 +96,12 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
       </p>
     </div>`;
 
-  // REDIRECCIÓN AUTOMÁTICA AL APPS SCRIPT REAL
+  // REDIRECCIÓN FORZADA AL ENTORNO SEGURO
   setTimeout(function() {
-    // ESTA ES TU URL DE IMPLEMENTACIÓN (LA QUE TERMINA EN /exec)
+    // Esta es tu URL de Apps Script que termina en /exec
     window.location.href = "https://script.google.com/macros/s/AKfycbxD0bY2h58MyCwbvGXjE0NeQ1CCGBu2sbfSz7k1_rapvwXUA7HmLMTxOm1DbkblUNoFEg/exec"; 
   }, 1800);
 });
-
     function toggleHugo() {
       const modal = document.getElementById('hugoModal');
       if (!modal.classList.contains('active')) {
