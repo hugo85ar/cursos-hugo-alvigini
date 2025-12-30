@@ -56,6 +56,12 @@
       margin-bottom: 20px;
     }
 
+    .promo-badge:not(.free):not(.premium) {
+    background: var(--platform-dark);
+    margin-bottom: 15px; /* Espacio antes de los otros badges */
+    box-shadow: 0 4px 10px rgba(26, 31, 54, 0.3);
+    }
+    
     .promo-badge {
       display: inline-block; padding: 6px 14px; border-radius: 20px;
       font-size: 0.8em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: white;
@@ -107,7 +113,7 @@
   <div class="bg-container"></div>
   <div class="bg-overlay"></div>
 
-  <div class="login-box">
+  
     <div class="brand-logo">
       <img src="https://res.cloudinary.com/dlnrsadbc/image/upload/v1762869486/Gemini_Generated_Image_nm1t21nm1t21nm1t_s7w9li.png" alt="Hugo Alvigini">
     </div>
