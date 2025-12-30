@@ -49,6 +49,7 @@
     h1 { font-family: 'Montserrat', sans-serif; color: var(--platform-dark); font-size: 2.2em; margin-bottom: 5px; }
     h2 { font-size: 1.1em; color: #4b5563; margin-bottom: 25px; font-weight: 400; line-height: 1.4; }
 
+    /* Contenedor de badges de abajo */
     .badges-container {
       display: flex;
       justify-content: center;
@@ -56,15 +57,17 @@
       margin-bottom: 20px;
     }
 
-    .promo-badge:not(.free):not(.premium) {
-    background: var(--platform-dark);
-    margin-bottom: 15px; /* Espacio antes de los otros badges */
-    box-shadow: 0 4px 10px rgba(26, 31, 54, 0.3);
-    }
-    
     .promo-badge {
       display: inline-block; padding: 6px 14px; border-radius: 20px;
       font-size: 0.8em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: white;
+    }
+
+    /* Estilo para el badge del Cohete (Centrado y solo) */
+    .rocket-badge {
+      background: var(--platform-dark);
+      margin: 0 auto 15px auto;
+      display: table; /* Esto asegura que el fondo solo cubra el texto y se centre */
+      box-shadow: 0 4px 10px rgba(26, 31, 54, 0.3);
     }
     
     .promo-badge.free { background: var(--accent-blue); box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3); }
@@ -113,11 +116,14 @@
   <div class="bg-container"></div>
   <div class="bg-overlay"></div>
 
-  
+  <div class="login-box">
     <div class="brand-logo">
       <img src="https://res.cloudinary.com/dlnrsadbc/image/upload/v1762869486/Gemini_Generated_Image_nm1t21nm1t21nm1t_s7w9li.png" alt="Hugo Alvigini">
     </div>
-    <div class="promo-badge"><i class="fas fa-rocket"></i>Pensando en el Emprendedor</div>
+    
+    <div class="promo-badge rocket-badge">
+      <i class="fas fa-rocket"></i> Pensando en el Emprendedor
+    </div>
     
     <div class="badges-container">
       <div class="promo-badge free"><i class="fas fa-gift"></i> Curso Gratuito</div>
@@ -135,7 +141,6 @@
       Ingresar a la Academia
     </a>
   </div>
-
   <div class="hugo-bot-bubble" onclick="toggleHugo()">
     <i class="fas fa-comments" style="color: white; font-size: 30px;"></i>
   </div>
