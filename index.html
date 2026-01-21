@@ -79,8 +79,40 @@
       display: block; width: 100%; padding: 18px; background: var(--platform-dark); color: white;
       border-radius: 12px; font-size: 1.15em; font-weight: 700; text-decoration: none; transition: 0.3s;
       box-shadow: 0 10px 20px rgba(26, 31, 54, 0.2);
+      text-align: center; /* Asegura que el texto del botón esté centrado */
     }
     .btn-access:hover { background: var(--platform-blue); transform: translateY(-3px); box-shadow: 0 15px 30px rgba(26, 31, 54, 0.3); }
+
+    /* --- NUEVOS ESTILOS PARA LA FRASE FLOTANTE --- */
+    .inspiring-quote-container {
+      position: fixed;
+      bottom: 110px; /* Un poco más arriba que la burbuja del chat */
+      right: 30px;
+      max-width: 400px; /* Ancho máximo para que no se extienda demasiado */
+      text-align: right;
+      color: #ffffff;
+      z-index: 5; /* Por encima del fondo, por debajo del modal */
+      text-shadow: 0 2px 5px rgba(0,0,0,0.8); /* Sombra para leerse bien sobre la imagen */
+    }
+
+    .inspiring-quote-container p {
+      font-family: 'Open Sans', sans-serif;
+      font-style: italic;
+      font-size: 1.1em;
+      line-height: 1.5;
+      margin-bottom: 15px;
+      font-weight: 400;
+    }
+
+    .inspiring-quote-container span {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.9em;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent-blue); /* Tu nombre en azul para destacar */
+    }
+    /* ------------------------------------------- */
 
     .hugo-bot-bubble { position: fixed; bottom: 30px; right: 30px; width: 70px; height: 70px; background: linear-gradient(135deg, #30D5C8, #00b894); border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.3); border: 3px solid white; z-index: 100; transition: 0.3s; }
     .hugo-bot-bubble:hover { transform: scale(1.1); }
@@ -102,12 +134,14 @@
 
     iframe { width: 100%; height: 100%; border: none; display: block; }
     
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       body { padding-left: 0; justify-content: center; }
       .login-box { width: 92%; padding: 40px 25px; }
       .hugo-content { width: 98%; height: 95vh; border-radius: 15px; }
       .hugo-close { top: 10px; right: 15px; font-size: 30px; }
       .badges-container { flex-direction: row; font-size: 0.7em; }
+      /* Ocultamos la frase en celulares para que no moleste */
+      .inspiring-quote-container { display: none; }
     }
   </style>
 </head>
@@ -137,24 +171,25 @@
       Tu camino hacia el éxito comienza aquí. Accede a tu contenido gratuito y premium para llevar tu emprendimiento al siguiente nivel.
     </p>
     
-    <div style="margin: 30px 0; padding: 25px; border-left: 5px solid var(--accent-blue); background: #f4f7fc; border-radius: 0 12px 12px 0; text-align: left; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-      <p style="font-style: italic; color: #4a5568; font-size: 1.1em; margin: 0; line-height: 1.6; font-weight: 500;">
-        "La verdadera recompensa de emprender no es solo económica, es la autonomía de diseñar tu propia vida. Es el arte de abrazar la incertidumbre y convertirla en un plan de acción."
-        <br><br>
-        "Personalmente, ya caminé dos senderos distintos en esto de emprender. Si me hubiesen dicho hace 10 años lo que haría hoy, creo que me hubiese reído sutilmente, dudando de mí mismo."
-      </p>
-      <span style="display: block; margin-top: 15px; font-weight: 700; color: var(--platform-blue); font-size: 0.95em; text-transform: uppercase; letter-spacing: 1px;">— Hugo Alvigini</span>
+    <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 35px;">
+      <a href="https://forms.gle/XtcmVEBKDbdApevz9" class="btn-access" style="background: var(--accent-blue);">
+        <i class="fas fa-gift" style="margin-right: 10px;"></i> ¡Quiero mi Curso Gratuito!
+      </a>
+
+      <a href="https://script.google.com/macros/s/AKfycby0d3lmpWy_JKb-JObmsi8yL71alS_EfELD_bm63irK2U-Mxm1V4u_KkvlkprNt96ZO/exec" class="btn-access" style="background: transparent; border: 2px solid var(--platform-dark); color: var(--platform-dark); padding: 16px;">
+        Ya soy alumno, Ingresar
+      </a>
     </div>
+  </div>
 
-    <div style="display: flex; flex-direction: column; gap: 15px;">
-  <a href="https://forms.gle/XtcmVEBKDbdApevz9" class="btn-access" style="background: var(--accent-blue);">
-    <i class="fas fa-gift" style="margin-right: 10px;"></i> ¡Quiero mi Curso Gratuito!
-  </a>
-
-  <a href="https://script.google.com/macros/s/AKfycby0d3lmpWy_JKb-JObmsi8yL71alS_EfELD_bm63irK2U-Mxm1V4u_KkvlkprNt96ZO/exec" class="btn-access" style="background: transparent; border: 2px solid var(--platform-dark); color: var(--platform-dark); padding: 16px;">
-    Ya soy alumno, Ingresar
-  </a>
-</div>
+  <div class="inspiring-quote-container">
+    <p>
+      "La verdadera recompensa de emprender no es solo económica, es la autonomía de diseñar tu propia vida. Es el arte de abrazar la incertidumbre y convertirla en un plan de acción."
+    </p>
+    <p>
+      "Personalmente, ya caminé dos senderos distintos en esto de emprender. Si me hubiesen dicho hace 10 años lo que haría hoy, creo que me hubiese reído sutilmente, dudando de mí mismo."
+    </p>
+    <span>— Hugo Alvigini</span>
   </div>
   <div class="hugo-bot-bubble" onclick="toggleHugo()">
     <i class="fas fa-comments" style="color: white; font-size: 30px;"></i>
