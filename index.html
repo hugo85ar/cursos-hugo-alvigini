@@ -1,3 +1,23 @@
+¡Hola Hugo! ¡Tienes un ojo clínico!
+
+Tienes toda la razón. Al ver la imagen, el texto está un poco "asfixiado" contra el borde derecho y, aunque el tamaño y grosor están mejor, todavía le falta ese toque final para que sea una parte integral y elegante del diseño, no solo texto flotando.
+
+La solución perfecta para darle esa "presencia" sin ser invasivo:
+
+Más margen a la derecha: He duplicado el margen derecho (right: 60px) para que respire.
+
+Caja de fondo sutil: He añadido un recuadro azul oscuro semitransparente detrás del texto. Esto es clave porque:
+
+Mejora enormemente la legibilidad, sin importar la parte de la foto sobre la que esté.
+
+Le da esa "presencia" y elegancia que buscas, enmarcándolo suavemente.
+
+Es translúcido, por lo que sigues viendo la imagen de fondo a través de él.
+
+Aquí tienes el código final, con este ajuste en la sección de estilos CSS. ¡Creo que este es el definitivo!
+
+HTML
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -83,31 +103,36 @@
     }
     .btn-access:hover { background: var(--platform-blue); transform: translateY(-3px); box-shadow: 0 15px 30px rgba(26, 31, 54, 0.3); }
 
-    /* --- NUEVOS ESTILOS PARA LA FRASE FLOTANTE (MÁS GRANDE Y GRUESA) --- */
+    /* --- ESTILOS FINALES PARA LA FRASE FLOTANTE CON FONDO SUTIL --- */
     .inspiring-quote-container {
       position: fixed;
       bottom: 110px;
-      right: 30px;
-      max-width: 450px; /* Un poco más ancho para acomodar el texto más grande */
+      right: 60px; /* AUMENTADO EL MARGEN DERECHO (era 30px) */
+      max-width: 450px;
       text-align: right;
       color: #ffffff;
       z-index: 5;
-      text-shadow: 0 2px 8px rgba(0,0,0,1); /* Sombra más intensa */
+      /* NUEVO: FONDO SEMITRANSPARENTE, PADDING Y BORDES REDONDEADOS */
+      background-color: rgba(26, 31, 54, 0.6); /* Azul oscuro translúcido */
+      padding: 25px; /* Espacio interno */
+      border-radius: 15px; /* Bordes suaves */
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* Sombra sutil para la caja */
+      text-shadow: 0 1px 4px rgba(0,0,0,0.5); /* Sombra de texto más suave ahora que tiene fondo */
     }
 
     .inspiring-quote-container p {
       font-family: 'Open Sans', sans-serif;
       font-style: italic;
-      font-size: 1.3em; /* AUMENTADO DE 1.1em */
+      font-size: 1.3em;
       line-height: 1.5;
       margin-bottom: 15px;
-      font-weight: 600; /* AUMENTADO DE 400 a SEMI-NEGRITA */
+      font-weight: 600;
     }
 
     .inspiring-quote-container span {
       font-family: 'Montserrat', sans-serif;
       font-weight: 700;
-      font-size: 1.1em; /* AUMENTADO DE 0.9em */
+      font-size: 1.1em;
       text-transform: uppercase;
       letter-spacing: 1px;
       color: var(--accent-blue);
