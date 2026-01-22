@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -147,19 +146,22 @@
       justify-content: center;
     }
 
-    /* Lógica de cambio de texto y color potente en HOVER */
     .hugo-bot-tooltip .text-hover { display: none; }
     .hugo-bot-tooltip .text-default { display: inline; }
 
     .hugo-bot-bubble:hover + .hugo-bot-tooltip {
-      /* CAMBIO: Ahora usa el degradado del bot para máxima visibilidad */
       background: linear-gradient(135deg, var(--bot-green), var(--bot-teal));
       transform: translateX(-15px);
-      box-shadow: 0 0 20px rgba(0, 184, 148, 0.5); /* Efecto de brillo verde */
+      box-shadow: 0 0 20px rgba(0, 184, 148, 0.5);
+      /* CAMBIO SOLICITADO: Letra negra y negrita reforzada */
+      color: #000000 !important;
     }
 
     .hugo-bot-bubble:hover + .hugo-bot-tooltip .text-default { display: none; }
-    .hugo-bot-bubble:hover + .hugo-bot-tooltip .text-hover { display: inline; }
+    .hugo-bot-bubble:hover + .hugo-bot-tooltip .text-hover { 
+      display: inline;
+      font-weight: 800; /* Extra negrita para que destaque más */
+    }
     /* --------------------------------------------------- */
 
     .hugo-modal {
