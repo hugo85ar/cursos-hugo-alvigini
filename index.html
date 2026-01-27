@@ -15,7 +15,8 @@
   <link rel="preconnect" href="https://res.cloudinary.com">
   
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+      media="print" onload="this.media='all'">
   
   <style>
     :root { 
@@ -115,12 +116,20 @@
     }
 
     .hugo-bot-tooltip {
-      position: fixed; bottom: 45px; right: 110px;
-      background: var(--accent-blue); color: white;
-      padding: 10px 20px; border-radius: 30px;
-      font-family: 'Montserrat', sans-serif; font-size: 0.9em; font-weight: 700;
-      z-index: 99; pointer-events: none;
-    }
+    position: fixed;
+    bottom: 45px;
+    right: 110px;
+    background: #111827; /* Cambiamos a un color casi negro para contraste máximo */
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9em;
+    font-weight: 700;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 99;
+    pointer-events: none;
+}
 
    .hugo-modal {
     display: none; 
