@@ -78,17 +78,30 @@
       box-shadow: 0 4px 10px rgba(26, 31, 54, 0.3);
     }
     
-    .promo-badge.free { background: var(--accent-blue); box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3); }
-    .promo-badge.premium { background: var(--accent-green); box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3); }
+  /* 🔹 Bloque corregido para llegar al 100 en Accesibilidad */
+.promo-badge.free { 
+    background: #1e40af; /* Azul más intenso para mejor contraste */
+    box-shadow: 0 4px 10px rgba(30, 64, 175, 0.3); 
+    color: white;
+}
 
-    .welcome-text { font-size: 1.05em; color: #374151; margin-bottom: 35px; line-height: 1.6; }
+.promo-badge.premium { 
+    background: #15803d; /* Verde más oscuro */
+    box-shadow: 0 4px 10px rgba(21, 128, 61, 0.3); 
+    color: white;
+}
 
-    .btn-access {
-      display: block; width: 100%; padding: 18px; background: var(--platform-dark); color: white;
-      border-radius: 12px; font-size: 1.15em; font-weight: 700; text-decoration: none; transition: 0.3s;
-      box-shadow: 0 10px 20px rgba(26, 31, 54, 0.2);
-      text-align: center;
-    }
+.welcome-text { font-size: 1.05em; color: #1f2937; margin-bottom: 35px; line-height: 1.6; }
+
+.btn-access {
+    display: block; width: 100%; padding: 18px; 
+    background: #111827; /* Gris casi negro para contraste perfecto */
+    color: white;
+    border-radius: 12px; font-size: 1.15em; font-weight: 700; 
+    text-decoration: none; transition: 0.3s;
+    box-shadow: 0 10px 20px rgba(17, 24, 39, 0.2);
+    text-align: center;
+}
     .btn-access:hover { background: var(--platform-blue); transform: translateY(-3px); box-shadow: 0 15px 30px rgba(26, 31, 54, 0.3); }
 
     .inspiring-quote-container {
