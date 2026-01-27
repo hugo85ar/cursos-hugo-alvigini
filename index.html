@@ -81,36 +81,25 @@
     
   /* 🔹 Bloque corregido para llegar al 100 en Accesibilidad */
 .promo-badge.free { 
-    background-color: #1e40af !important; /* Azul intenso */
+    background-color: #1e40af !important; 
     color: #ffffff !important;
-    box-shadow: 0 4px 10px rgba(30, 64, 175, 0.3); 
 }
 
 .promo-badge.premium { 
-    background-color: #15803d !important; /* Verde bosque */
+    background-color: #15803d !important; 
     color: #ffffff !important;
-    box-shadow: 0 4px 10px rgba(21, 128, 61, 0.3); 
 }
 
 .welcome-text { font-size: 1.05em; color: #1f2937; margin-bottom: 35px; line-height: 1.6; }
 
 .btn-access {
-    display: block; 
-    width: 100%; 
-    padding: 18px; 
-    background-color: #111827 !important; /* Gris oscuro/negro para contraste máximo */
+    background-color: #111827 !important; /* Contraste máximo para accesibilidad */
     color: #ffffff !important;
-    border-radius: 12px; 
-    font-size: 1.15em; 
-    font-weight: 700; 
-    text-decoration: none; 
-    transition: 0.3s;
-    box-shadow: 0 10px 20px rgba(17, 24, 39, 0.2);
-    text-align: center;
+    font-weight: 700;
 }
     .btn-access:hover { background: var(--platform-blue); transform: translateY(-3px); box-shadow: 0 15px 30px rgba(26, 31, 54, 0.3); }
 
-    .inspiring-quote-container {
+    .inspiring-quote-container {.btn-access {
       position: fixed;
       bottom: 110px;
       right: 60px;
@@ -226,9 +215,8 @@
   <div class="login-box">
     <div class="brand-logo">
       <img src="https://res.cloudinary.com/dlnrsadbc/image/upload/w_280,h_280,c_fill,q_auto,f_auto/v1762869486/Gemini_Generated_Image_nm1t21nm1t21nm1t_s7w9li.png" 
-     width="160" 
-     height="160" 
-     fetchpriority="high">
+     alt="Hugo Alvigini - Especialista en Automatización" 
+     width="160" height="160" fetchpriority="high">
     </div>
     
     <div class="promo-badge rocket-badge">
@@ -248,8 +236,8 @@
     </p>
     
     <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 35px;">
-      <a href="https://forms.gle/XtcmVEBKDbdApevz9" class="btn-access" style="background: var(--accent-blue);">
-        <i class="fas fa-gift" style="margin-right: 10px;"></i> ¡Quiero mi Curso Gratuito!
+      <a href="https://forms.gle/XtcmVEBKDbdApevz9" class="btn-access">
+          <i class="fas fa-gift" style="margin-right: 10px;"></i> ¡Quiero mi Curso Gratuito!
       </a>
 
       <a href="https://hugo85ar.github.io/Plataforma-de-Cursos/" class="btn-access" style="background: transparent; border: 2px solid var(--platform-dark); color: var(--platform-dark); padding: 16px;">
