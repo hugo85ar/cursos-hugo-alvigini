@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<head>
 <html lang="es">
-<base target="_top">
+<head>
+  <base target="_top">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -16,7 +16,6 @@
   
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
   
   <style>
     :root { 
@@ -28,7 +27,7 @@
       --bot-green: #00b894;
     }
     
-    html, body { height: 100%; margin: 0; padding: 0; overflow: hidden; }
+    html, body { height: 100%; margin: 0; padding: 0; overflow-x: hidden; }
 
     .bg-container {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -62,10 +61,7 @@
     h2 { font-size: 1.1em; color: #4b5563; margin-bottom: 25px; font-weight: 400; line-height: 1.4; }
 
     .badges-container {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
+      display: flex; justify-content: center; gap: 10px; margin-bottom: 20px;
     }
 
     .promo-badge {
@@ -74,66 +70,42 @@
     }
 
     .rocket-badge {
-      background: var(--platform-dark);
-      margin: 0 auto 15px auto;
-      display: table;
+      background: var(--platform-dark); margin: 0 auto 15px auto; display: table;
       box-shadow: 0 4px 10px rgba(26, 31, 54, 0.3);
     }
     
-  /* 🔹 Bloque corregido para llegar al 100 en Accesibilidad */
-.promo-badge.free { 
-    background-color: #1e40af !important; 
-    color: #ffffff !important;
-}
+    /* ♿ ACCESIBILIDAD (CONTRASTE AL 100%) */
+    .promo-badge.free { background-color: #1e40af !important; color: #ffffff !important; }
+    .promo-badge.premium { background-color: #15803d !important; color: #ffffff !important; }
 
-.promo-badge.premium { 
-    background-color: #15803d !important; 
-    color: #ffffff !important;
-}
+    .welcome-text { font-size: 1.05em; color: #1f2937; margin-bottom: 35px; line-height: 1.6; }
 
-.welcome-text { font-size: 1.05em; color: #1f2937; margin-bottom: 35px; line-height: 1.6; }
+    .btn-access {
+      display: block; width: 100%; padding: 18px; 
+      background-color: #111827 !important; 
+      color: #ffffff !important;
+      border-radius: 12px; font-size: 1.15em; font-weight: 700; 
+      text-decoration: none; transition: 0.3s;
+      box-shadow: 0 10px 20px rgba(17, 24, 39, 0.2);
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    .btn-access:hover { background: #1f2937 !important; transform: translateY(-3px); }
 
-.btn-access {
-    background-color: #111827 !important; /* Contraste máximo para accesibilidad */
-    color: #ffffff !important;
-    font-weight: 700;
-}
-    .btn-access:hover { background: var(--platform-blue); transform: translateY(-3px); box-shadow: 0 15px 30px rgba(26, 31, 54, 0.3); }
-
-    .inspiring-quote-container {.btn-access {
-      position: fixed;
-      bottom: 110px;
-      right: 60px;
-      max-width: 450px;
-      text-align: right;
-      color: #ffffff;
-      z-index: 5;
-      background-color: rgba(26, 31, 54, 0.6);
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    /* 🔹 CITA INSPIRADORA (CORREGIDA) */
+    .inspiring-quote-container {
+      position: fixed; bottom: 110px; right: 60px; max-width: 450px;
+      text-align: right; color: #ffffff; z-index: 5;
+      background-color: rgba(26, 31, 54, 0.6); padding: 25px;
+      border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
 
     .inspiring-quote-container p {
-      font-family: 'Open Sans', sans-serif;
-      font-style: italic;
-      font-size: 1.3em;
-      line-height: 1.5;
-      margin-bottom: 15px;
-      font-weight: 600;
+      font-family: 'Open Sans', sans-serif; font-style: italic;
+      font-size: 1.3em; line-height: 1.5; margin-bottom: 15px; font-weight: 600;
     }
 
-    .inspiring-quote-container span {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 1.1em;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--accent-blue);
-    }
-
-    /* --- ESTILOS DEL BOT Y TOOLTIP DINÁMICO --- */
+    /* --- ESTILOS DEL BOT --- */
     .hugo-bot-bubble { 
       position: fixed; bottom: 30px; right: 30px; width: 70px; height: 70px; 
       background: linear-gradient(135deg, var(--bot-teal), var(--bot-green)); 
@@ -141,45 +113,14 @@
       cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
       border: 3px solid white; z-index: 100; transition: 0.3s; 
     }
-    .hugo-bot-bubble:hover { transform: scale(1.1); box-shadow: 0 0 20px rgba(48, 213, 200, 0.6); }
 
     .hugo-bot-tooltip {
-      position: fixed;
-      bottom: 45px;
-      right: 110px;
-      background: var(--accent-blue);
-      color: white;
-      padding: 10px 20px;
-      border-radius: 30px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.9em;
-      font-weight: 700;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      z-index: 99;
-      pointer-events: none;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      position: fixed; bottom: 45px; right: 110px;
+      background: var(--accent-blue); color: white;
+      padding: 10px 20px; border-radius: 30px;
+      font-family: 'Montserrat', sans-serif; font-size: 0.9em; font-weight: 700;
+      z-index: 99; pointer-events: none;
     }
-
-    .hugo-bot-tooltip .text-hover { display: none; }
-    .hugo-bot-tooltip .text-default { display: inline; }
-
-    .hugo-bot-bubble:hover + .hugo-bot-tooltip {
-      background: linear-gradient(135deg, var(--bot-green), var(--bot-teal));
-      transform: translateX(-15px);
-      box-shadow: 0 0 20px rgba(0, 184, 148, 0.5);
-      /* CAMBIO SOLICITADO: Letra negra y negrita reforzada */
-      color: #000000 !important;
-    }
-
-    .hugo-bot-bubble:hover + .hugo-bot-tooltip .text-default { display: none; }
-    .hugo-bot-bubble:hover + .hugo-bot-tooltip .text-hover { 
-      display: inline;
-      font-weight: 800; /* Extra negrita para que destaque más */
-    }
-    /* --------------------------------------------------- */
 
     .hugo-modal {
       display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -190,20 +131,13 @@
     .hugo-content {
       width: 95%; max-width: 1200px; height: 92vh; background: white; border-radius: 25px;
       position: relative; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.6);
-      transform: scale(0.9); opacity: 0; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-    .hugo-modal.active .hugo-content { transform: scale(1); opacity: 1; }
     
-    .hugo-close { position: absolute; top: 15px; right: 25px; font-size: 35px; color: #ffffff !important; cursor: pointer; z-index: 2001; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+    .hugo-close { position: absolute; top: 15px; right: 25px; font-size: 35px; color: #ffffff !important; cursor: pointer; z-index: 2001; }
 
-    iframe { width: 100%; height: 100%; border: none; display: block; }
-    
     @media (max-width: 900px) {
       body { padding-left: 0; justify-content: center; }
       .login-box { width: 92%; padding: 40px 25px; }
-      .hugo-content { width: 98%; height: 95vh; border-radius: 15px; }
-      .hugo-close { top: 10px; right: 15px; font-size: 30px; }
-      .badges-container { flex-direction: row; font-size: 0.7em; }
       .inspiring-quote-container, .hugo-bot-tooltip { display: none; }
     }
   </style>
@@ -215,9 +149,9 @@
 
   <div class="login-box">
     <div class="brand-logo">
-     <img src="https://res.cloudinary.com/dlnrsadbc/image/upload/w_280,h_280,c_fill,q_auto,f_auto/v1762869486/Gemini_Generated_Image_nm1t21nm1t21nm1t_s7w9li.png" 
-     alt="Hugo Alvigini - Especialista en Automatización" 
-     width="160" height="160" fetchpriority="high">
+      <img src="https://res.cloudinary.com/dlnrsadbc/image/upload/w_280,h_280,c_fill,q_auto,f_auto/v1762869486/Gemini_Generated_Image_nm1t21nm1t21nm1t_s7w9li.png" 
+           alt="Hugo Alvigini - Especialista en Automatización" 
+           width="160" height="160" fetchpriority="high">
     </div>
     
     <div class="promo-badge rocket-badge">
@@ -241,53 +175,35 @@
           <i class="fas fa-gift" style="margin-right: 10px;"></i> ¡Quiero mi Curso Gratuito!
       </a>
 
-      <a href="https://hugo85ar.github.io/Plataforma-de-Cursos/" class="btn-access" style="background: transparent; border: 2px solid var(--platform-dark); color: var(--platform-dark); padding: 16px;">
+      <a href="https://hugo85ar.github.io/Plataforma-de-Cursos/" class="btn-access" style="background: transparent !important; border: 2px solid var(--platform-dark); color: var(--platform-dark) !important; padding: 16px;">
         Ya soy alumno, Ingresar
       </a>
     </div>
   </div>
 
   <div class="inspiring-quote-container">
-    <p>
-      "La verdadera recompensa de emprender no es solo económica, es la autonomía de diseñar tu propia vida. Es el arte de abrazar la incertidumbre y convertirla en un plan de acción."
-    </p>
-    <p>
-      "Personalmente, ya caminé dos senderos distintos en esto de emprender. Si me hubiesen dicho hace 10 años lo que haría hoy, creo que me hubiese reído sutilmente, dudando de mí mismo."
-    </p>
-    <span>— Hugo Alvigini</span>
+    <p>"La verdadera recompensa de emprender no es solo económica, es la autonomía de diseñar tu propia vida."</p>
+    <span style="font-weight:700; color:#3b82f6;">— Hugo Alvigini</span>
   </div>
 
   <div class="hugo-bot-bubble" onclick="toggleHugo()">
     <i class="fas fa-comments" style="color: white; font-size: 30px;"></i>
   </div>
   <div class="hugo-bot-tooltip">
-    <span class="text-default">HugoBot</span>
-    <span class="text-hover">¡Habla con HugoBot para dar el salto!</span>
+    <span>HugoBot</span>
   </div>
 
   <div id="hugoModal" class="hugo-modal">
     <span class="hugo-close" onclick="toggleHugo()">&times;</span>
     <div class="hugo-content">
-      <iframe 
-        src="https://hugo85ar.github.io/HugoBot/?v=1.1" 
-        allow="autoplay; encrypted-media; fullscreen; microphone" 
-        sandbox="allow-forms allow-modals allow-popups allow-scripts allow-same-origin"
-        style="width: 1px; min-width: 100%; height: 100%; border: none; display: block;"
-        loading="lazy">
-      </iframe>
+      <iframe src="https://hugo85ar.github.io/HugoBot/?v=1.1" style="width: 100%; height: 100%; border: none;"></iframe>
     </div>
   </div>
 
   <script>
     function toggleHugo() {
       const modal = document.getElementById('hugoModal');
-      if (!modal.classList.contains('active')) {
-        modal.style.display = 'flex';
-        setTimeout(() => { modal.classList.add('active'); }, 10);
-      } else {
-        modal.classList.remove('active');
-        setTimeout(() => { modal.style.display = 'none'; }, 500);
-      }
+      modal.classList.toggle('active');
     }
   </script>
 </body>
