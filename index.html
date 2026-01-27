@@ -226,18 +226,20 @@
    function toggleHugo() {
     const modal = document.getElementById('hugoModal');
     const frame = document.getElementById('hugoBotFrame');
-    
-    if (!modal) return;
-
-    // Carga el contenido del bot solo la primera vez que se abre
-    if (!frame.src) {
-        frame.src = frame.getAttribute('data-src');
-    }
+    if (!modal || !frame) return;
 
     if (modal.classList.contains('active')) {
         modal.classList.remove('active');
-        setTimeout(() => { modal.style.display = 'none'; }, 400);
+        // Quitamos el src al cerrar para liberar la memoria del celular
+        setTimeout(() => { 
+            modal.style.display = 'none';
+            frame.src = ''; 
+        }, 400);
     } else {
+        // Solo cargamos el bot si el src está vacío
+        if (!frame.src) {
+            frame.src = frame.getAttribute('data-src');
+        }
         modal.style.display = 'flex';
         setTimeout(() => { modal.classList.add('active'); }, 10);
     }
