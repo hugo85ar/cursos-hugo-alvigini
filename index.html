@@ -154,34 +154,43 @@
     .hugo-close { position: absolute; top: 15px; right: 25px; font-size: 35px; color: #ffffff !important; cursor: pointer; z-index: 2001; }
 
 /* 📱 OPTIMIZACIÓN MÓVIL (Escalado Real) */
-/* 📱 AJUSTE FINAL PARA MÓVIL */
-@media (max-width: 900px) {
-  body { padding-left: 0; justify-content: center; align-items: flex-start; padding-top: 60px; }
+/* 📱 SOLUCIÓN ATÓMICA PARA MÓVIL */
+@media (max-width: 600px) {
+  body { 
+    padding-left: 0 !important; 
+    justify-content: center !important; 
+    align-items: flex-start !important; 
+    padding-top: 50px !important; 
+  }
   
   .login-box { 
-    width: 88%; 
-    padding: 25px 15px !important; /* Caja más compacta */
+    width: 85% !important; 
+    padding: 20px 15px !important; 
+    margin: 0 auto !important;
   }
 
-  .brand-logo { margin-top: -85px; margin-bottom: 10px; }
-  .brand-logo img { width: 105px; height: 105px; }
+  /* Achicamos el logo al extremo para ganar pantalla */
+  .brand-logo { margin-top: -75px !important; margin-bottom: 10px !important; }
+  .brand-logo img { width: 90px !important; height: 90px !important; border-width: 3px !important; }
 
-  /* Títulos que no asustan */
-  h1 { font-size: 1.4em !important; margin-bottom: 2px !important; } 
-  h2 { font-size: 0.85em; margin-bottom: 15px; }
-  .welcome-text { font-size: 0.85em; margin-bottom: 15px; }
+  /* Títulos finos y elegantes */
+  h1 { font-size: 1.3em !important; margin: 0 !important; line-height: 1.2 !important; } 
+  h2 { font-size: 0.8em !important; margin-bottom: 15px !important; }
+  .welcome-text { font-size: 0.8em !important; margin-bottom: 15px !important; line-height: 1.4 !important; }
 
-  /* 🔘 AQUÍ ACHICAMOS LOS BOTONES DE VERDAD */
+  /* 🔘 BOTONES FINOS (Dieta total) */
   .btn-access { 
-    padding: 10px 15px !important; /* Más finos */
+    padding: 10px !important; 
     font-size: 0.9em !important; 
-    margin-bottom: 10px;
+    margin-bottom: 8px !important;
+    border-radius: 8px !important;
   }
   
-  /* Quitamos el espacio extra entre botones */
-  div[style*="gap: 15px"] { gap: 10px !important; margin-top: 20px !important; }
+  /* Forzamos el contenedor de botones */
+  div[style*="display: flex"] { gap: 8px !important; margin-top: 15px !important; }
 
-  .inspiring-quote-container, .hugo-bot-tooltip { display: none; }
+  /* Ocultamos todo lo que ensucia en móvil */
+  .inspiring-quote-container, .hugo-bot-tooltip, .rocket-badge { display: none !important; }
 }
   </style>
 </head>
