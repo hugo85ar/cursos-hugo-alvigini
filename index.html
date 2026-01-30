@@ -158,40 +158,35 @@
       body { 
         padding-left: 0; 
         justify-content: center; 
-        align-items: flex-start; /* Para que la caja no quede pegada al techo */
-        padding-top: 80px; 
+        align-items: flex-start; 
+        padding-top: 80px; /* Espacio para que el logo no toque el borde superior */
       }
 
       .login-box { 
         width: 88%; 
-        padding: 30px 20px; /* Reducimos padding para ganar espacio */
+        padding: 30px 20px; /* Reducimos el padding interno para ganar aire */
       }
 
-      /* Reducimos el logo y ajustamos su posición */
+      /* Logo más pequeño y mejor ubicado */
       .brand-logo { margin-top: -85px; margin-bottom: 15px; }
       .brand-logo img { width: 120px; height: 120px; border-width: 4px; }
 
-      /* Tipografía fluida para móvil */
+      /* Tipografía fluida para que no se vea 'tosco' */
       h1 { font-size: 1.6em; } 
-      h2 { font-size: 0.95em; margin-bottom: 15px; }
+      h2 { font-size: 0.95em; margin-bottom: 20px; }
       .welcome-text { font-size: 0.9em; margin-bottom: 25px; }
 
-      /* Botones más cómodos para el pulgar pero no gigantes */
+      /* Botones proporcionados al pulgar */
       .btn-access { 
-        padding: 15px; 
-        font-size: 1.05em; 
+        padding: 14px; 
+        font-size: 1em; 
+        margin-bottom: 12px;
       }
 
-      /* Ocultamos lo que estorba en móvil */
+      /* Mantenemos limpio el diseño ocultando lo innecesario */
       .inspiring-quote-container, 
       .hugo-bot-tooltip { 
         display: none; 
-      }
-      
-      /* Ajustamos la burbuja del bot para que no tape botones */
-      .hugo-bot-bubble {
-        width: 60px; height: 60px;
-        bottom: 20px; right: 20px;
       }
     }
   </style>
