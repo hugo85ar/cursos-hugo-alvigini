@@ -154,13 +154,12 @@
     .hugo-close { position: absolute; top: 15px; right: 25px; font-size: 35px; color: #ffffff !important; cursor: pointer; z-index: 2001; }
 
 /* 📱 OPTIMIZACIÓN MÓVIL (Escalado Real) */
-    @media (max-width: 900px) {
-      body { 
-        padding-left: 0; 
-        justify-content: center; 
-        align-items: flex-start; 
-        padding-top: 80px; /* Espacio para que el logo no toque el borde superior */
-      }
+    /* 📱 OPTIMIZACIÓN MÓVIL: Esto achica títulos y botones */
+@media (max-width: 900px) {
+        body { padding-left: 0; justify-content: center; align-items: flex-start; padding-top: 80px; }
+    .login-box { width: 90%; padding: 30px 20px; } /* Menos aire interno para ganar espacio */
+    .brand-logo { margin-top: -90px; }
+    .brand-logo img { width: 110px; height: 110px; }
 
       .login-box { 
         width: 88%; 
@@ -178,8 +177,8 @@
 
       /* Botones proporcionados al pulgar */
       .btn-access { 
-        padding: 14px; 
-        font-size: 1em; 
+        ppadding: 12px !important; 
+        font-size: 1em !important; 
         margin-bottom: 12px;
       }
 
