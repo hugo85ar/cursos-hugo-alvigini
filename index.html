@@ -154,40 +154,31 @@
     .hugo-close { position: absolute; top: 15px; right: 25px; font-size: 35px; color: #ffffff !important; cursor: pointer; z-index: 2001; }
 
 /* 📱 OPTIMIZACIÓN MÓVIL (Escalado Real) */
-    /* 📱 OPTIMIZACIÓN MÓVIL: Esto achica títulos y botones */
+ /* 📱 AJUSTE REAL PARA MÓVIL */
 @media (max-width: 900px) {
-        body { padding-left: 0; justify-content: center; align-items: flex-start; padding-top: 80px; }
-    .login-box { width: 90%; padding: 30px 20px; } /* Menos aire interno para ganar espacio */
-    .brand-logo { margin-top: -90px; }
-    .brand-logo img { width: 110px; height: 110px; }
+  body { padding-left: 0; justify-content: center; align-items: flex-start; padding-top: 70px; }
+  
+  .login-box { 
+    width: 90%; 
+    padding: 25px 15px !important; /* Achicamos la caja para que respire */
+  }
 
-      .login-box { 
-        width: 88%; 
-        padding: 30px 20px; /* Reducimos el padding interno para ganar aire */
-      }
+  .brand-logo { margin-top: -85px; }
+  .brand-logo img { width: 110px; height: 110px; } /* Logo más humano */
 
-      /* Logo más pequeño y mejor ubicado */
-      .brand-logo { margin-top: -85px; margin-bottom: 15px; }
-      .brand-logo img { width: 120px; height: 120px; border-width: 4px; }
+  h1 { font-size: 1.5em !important; } /* Título elegante, no gigante */
+  h2 { font-size: 0.9em; margin-bottom: 15px; }
+  .welcome-text { font-size: 0.85em; margin-bottom: 20px; }
 
-      /* Tipografía fluida para que no se vea 'tosco' */
-      h1 { font-size: 1.6em; } 
-      h2 { font-size: 0.95em; margin-bottom: 20px; }
-      .welcome-text { font-size: 0.9em; margin-bottom: 25px; }
-
-      /* Botones proporcionados al pulgar */
-      .btn-access { 
-        ppadding: 12px !important; 
-        font-size: 1em !important; 
-        margin-bottom: 12px;
-      }
-
-      /* Mantenemos limpio el diseño ocultando lo innecesario */
-      .inspiring-quote-container, 
-      .hugo-bot-tooltip { 
-        display: none; 
-      }
-    }
+  /* 🔘 BOTONES: Aquí es donde ganamos la batalla */
+  .btn-access { 
+    padding: 12px !important; 
+    font-size: 0.95em !important; 
+    margin-bottom: 10px;
+  }
+  
+  .inspiring-quote-container, .hugo-bot-tooltip { display: none; }
+}
   </style>
 </head>
 <body>
