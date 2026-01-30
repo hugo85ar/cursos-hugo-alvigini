@@ -154,29 +154,33 @@
     .hugo-close { position: absolute; top: 15px; right: 25px; font-size: 35px; color: #ffffff !important; cursor: pointer; z-index: 2001; }
 
 /* 📱 OPTIMIZACIÓN MÓVIL (Escalado Real) */
- /* 📱 AJUSTE REAL PARA MÓVIL */
+/* 📱 AJUSTE FINAL PARA MÓVIL */
 @media (max-width: 900px) {
-  body { padding-left: 0; justify-content: center; align-items: flex-start; padding-top: 70px; }
+  body { padding-left: 0; justify-content: center; align-items: flex-start; padding-top: 60px; }
   
   .login-box { 
-    width: 90%; 
-    padding: 25px 15px !important; /* Achicamos la caja para que respire */
+    width: 88%; 
+    padding: 25px 15px !important; /* Caja más compacta */
   }
 
-  .brand-logo { margin-top: -85px; }
-  .brand-logo img { width: 110px; height: 110px; } /* Logo más humano */
+  .brand-logo { margin-top: -85px; margin-bottom: 10px; }
+  .brand-logo img { width: 105px; height: 105px; }
 
-  h1 { font-size: 1.5em !important; } /* Título elegante, no gigante */
-  h2 { font-size: 0.9em; margin-bottom: 15px; }
-  .welcome-text { font-size: 0.85em; margin-bottom: 20px; }
+  /* Títulos que no asustan */
+  h1 { font-size: 1.4em !important; margin-bottom: 2px !important; } 
+  h2 { font-size: 0.85em; margin-bottom: 15px; }
+  .welcome-text { font-size: 0.85em; margin-bottom: 15px; }
 
-  /* 🔘 BOTONES: Aquí es donde ganamos la batalla */
+  /* 🔘 AQUÍ ACHICAMOS LOS BOTONES DE VERDAD */
   .btn-access { 
-    padding: 12px !important; 
-    font-size: 0.95em !important; 
+    padding: 10px 15px !important; /* Más finos */
+    font-size: 0.9em !important; 
     margin-bottom: 10px;
   }
   
+  /* Quitamos el espacio extra entre botones */
+  div[style*="gap: 15px"] { gap: 10px !important; margin-top: 20px !important; }
+
   .inspiring-quote-container, .hugo-bot-tooltip { display: none; }
 }
   </style>
