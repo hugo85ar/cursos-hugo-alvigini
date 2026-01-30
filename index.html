@@ -21,6 +21,7 @@
       media="print" onload="this.media='all'">
   
   <style>
+    * { box-sizing: border-box; } /* 🛡️ Evita que los elementos se salgan de sus cajas */
     :root { 
       --platform-dark: #1a1f36; 
       --platform-blue: #1e3c72; 
@@ -154,43 +155,32 @@
     .hugo-close { position: absolute; top: 15px; right: 25px; font-size: 35px; color: #ffffff !important; cursor: pointer; z-index: 2001; }
 
 /* 📱 OPTIMIZACIÓN MÓVIL (Escalado Real) */
-/* 📱 SOLUCIÓN ATÓMICA PARA MÓVIL */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   body { 
-    padding-left: 0 !important; 
-    justify-content: center !important; 
-    align-items: flex-start !important; 
-    padding-top: 50px !important; 
+    align-items: center !important; /* Centramos para que el logo no se escape arriba */
+    padding-top: 40px !important; 
+    padding-left: 0 !important;
+    justify-content: center !important;
   }
   
   .login-box { 
-    width: 85% !important; 
-    padding: 20px 15px !important; 
-    margin: 0 auto !important;
+    width: 92% !important; 
+    padding: 25px !important; /* Espacio interno para que los botones 'respiren' */
   }
 
-  /* Achicamos el logo al extremo para ganar pantalla */
-  .brand-logo { margin-top: -75px !important; margin-bottom: 10px !important; }
-  .brand-logo img { width: 90px !important; height: 90px !important; border-width: 3px !important; }
+  /* Bajamos el logo para que NO se lo coma el borde superior */
+  .brand-logo { margin-top: -70px !important; margin-bottom: 10px !important; }
+  .brand-logo img { width: 100px !important; height: 100px !important; }
 
-  /* Títulos finos y elegantes */
-  h1 { font-size: 1.3em !important; margin: 0 !important; line-height: 1.2 !important; } 
-  h2 { font-size: 0.8em !important; margin-bottom: 15px !important; }
-  .welcome-text { font-size: 0.8em !important; margin-bottom: 15px !important; line-height: 1.4 !important; }
+  h1 { font-size: 1.5em !important; }
+  h2 { font-size: 0.9em !important; }
 
-  /* 🔘 BOTONES FINOS (Dieta total) */
+  /* 🔘 BOTONES DENTRO DEL CONTENEDOR */
   .btn-access { 
-    padding: 10px !important; 
-    font-size: 0.9em !important; 
-    margin-bottom: 8px !important;
-    border-radius: 8px !important;
+    padding: 12px !important; 
+    font-size: 1em !important; 
+    width: 100% !important; /* Se ajustan al ancho de la caja blanca */
   }
-  
-  /* Forzamos el contenedor de botones */
-  div[style*="display: flex"] { gap: 8px !important; margin-top: 15px !important; }
-
-  /* Ocultamos todo lo que ensucia en móvil */
-  .inspiring-quote-container, .hugo-bot-tooltip, .rocket-badge { display: none !important; }
 }
   </style>
 </head>
@@ -230,10 +220,10 @@
           <i class="fas fa-gift" style="margin-right: 10px;"></i> ¡Quiero mi Curso Gratuito!
       </a>
 
-      <a href="https://hugo85ar.github.io/Plataforma-de-Cursos/" class="btn-access" 
+       <a href="https://hugo85ar.github.io/Plataforma-de-Cursos/" class="btn-access" 
    style="background: transparent !important; border: 2px solid var(--platform-dark); color: var(--platform-dark) !important;">
    Ya soy alumno, Ingresar
-      </a>
+       </a>
     </div>
   </div>
 
