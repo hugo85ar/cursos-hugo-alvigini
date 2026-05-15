@@ -14,16 +14,20 @@
     :root { 
       --platform-dark: #1a1f36; 
       --accent-blue: #3b82f6;
+      --whatsapp-green: #25d366;
     }
     
     html, body { height: 100%; margin: 0; padding: 0; overflow-x: hidden; font-family: 'Open Sans', sans-serif; }
 
-    /* CONTENEDOR DE BACKGROUND (Esperando tu imagen) */
+    /* FONDO CONFIGURADO CON TU NUEVA IMAGEN */
     .bg-container {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background-color: #1a1f36; /* Color de respaldo */
-      background-image: url('TU_URL_DE_IMAGEN_AQUI'); 
-      background-size: cover; background-position: center; filter: brightness(0.4); z-index: -1;
+      background-color: #1a1f36;
+      /* URL de la imagen que te gustó con el logo HA */
+      background-image: url('https://res.cloudinary.com/dlnrsadbc/image/upload/v1715785000/image_ee11d2.jpg'); 
+      background-size: cover; background-position: center; 
+      filter: brightness(0.6); /* Ajustado para que se vea bien el fondo pero resalte el login */
+      z-index: -1;
     }
 
     body { display: flex; align-items: center; justify-content: flex-start; min-height: 100vh; padding-left: 8%; position: relative; }
@@ -34,7 +38,7 @@
     }
 
     .brand-logo { margin-top: -100px; margin-bottom: 15px; display: flex; justify-content: center; }
-    .brand-logo img { width: 140px; height: 140px; border-radius: 50%; border: 6px solid white; box-shadow: 0 10px 25px rgba(0,0,0,0.2); background: white; }
+    .brand-logo img { width: 140px; height: 140px; border-radius: 50%; border: 6px solid white; box-shadow: 0 10px 25px rgba(0,0,0,0.2); background: white; object-fit: cover; }
 
     h1 { font-family: 'Montserrat', sans-serif; color: var(--platform-dark); font-size: 1.8em; margin: 10px 0 5px 0; }
     h2 { font-size: 1em; color: #4b5563; margin-bottom: 25px; font-weight: 400; }
@@ -49,19 +53,22 @@
     .btn-secondary { border: 2px solid var(--platform-dark); color: var(--platform-dark); background: transparent; }
     .btn-secondary:hover { background: #f3f4f6; }
 
-    /* BURBUJA WHATSAPP (Nueva imagen) */
+    /* BURBUJA WHATSAPP CORREGIDA */
     .wp-bubble { 
-      position: fixed; bottom: 30px; right: 30px; width: 70px; height: 70px; 
-      border-radius: 50%; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.3); z-index: 100; 
-      transition: 0.3s; border: 2px solid white; overflow: hidden;
+      position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px; 
+      background-color: var(--whatsapp-green);
+      border-radius: 50%; cursor: pointer; 
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3); z-index: 100; 
+      transition: 0.3s; border: 2px solid white; text-decoration: none;
     }
-    .wp-bubble img { width: 100%; height: 100%; object-fit: cover; }
-    .wp-bubble:hover { transform: scale(1.1); }
+    .wp-bubble i { color: white; font-size: 35px; }
+    .wp-bubble:hover { transform: scale(1.1); background-color: #128c7e; }
 
-    /* MODAL HUGO BOT Y CIERRE */
+    /* MODAL HUGO BOT */
     .hugo-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1000; justify-content: center; align-items: center; backdrop-filter: blur(8px); }
     .hugo-modal.active { display: flex; }
-    .hugo-content { width: 95%; max-width: 800px; height: 85vh; background: white; border-radius: 20px; overflow: hidden; position: relative; }
+    .hugo-content { width: 95%; max-width: 850px; height: 85vh; background: white; border-radius: 20px; overflow: hidden; position: relative; }
     
     .hugo-close { 
       position: absolute; top: 15px; right: 20px; font-size: 35px; color: #fff; cursor: pointer; z-index: 1100; font-family: sans-serif; font-weight: bold;
@@ -69,7 +76,7 @@
 
     @media (max-width: 768px) {
       body { padding-left: 0; justify-content: center; }
-      .login-box { width: 90%; }
+      .login-box { width: 92%; }
     }
   </style>
 </head>
@@ -100,8 +107,8 @@
     </p>
   </div>
 
-  <a href="https://wa.me/TU_NUMERO_AQUI" target="_blank" class="wp-bubble">
-    <img src="https://res.cloudinary.com/dlnrsadbc/image/upload/v1778806879/Gemini_Generated_Image_nm1t21nm1t21nm1t_s7w9li_1_1_uos6ak.webp" alt="WhatsApp Support">
+  <a href="https://wa.me/5491136151754" target="_blank" class="wp-bubble">
+    <i class="fab fa-whatsapp"></i>
   </a>
 
   <div id="hugoModal" class="hugo-modal">
