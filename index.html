@@ -4,69 +4,43 @@
   <base target="_top">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Hugo Alvigini | Herramientas de Productividad y Automatización</title>
+  <title>Hugo Alvigini | Academia de Automatización</title>
   
   <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '2189151328193841');
-  fbq('track', 'PageView');
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2189151328193841');
+    fbq('track', 'PageView');
   </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=2189151328193841&ev=PageView&noscript=1"
-  /></noscript>
-  <meta name="description" content="Accede a cursos de Google Sheets y automatización para potenciar tu emprendimiento con Hugo Alvigini.">
-  <link rel="canonical" href="https://hugo85ar.github.io/cursos-hugo-alvigini/">
 
-  <link rel="preload" as="image" href="https://res.cloudinary.com/dlnrsadbc/image/upload/w_280,h_280,c_fill,q_auto,f_auto/v1762869486/Gemini_Generated_Image_nm1t21nm1t21nm1t_s7w9li.png">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  <link rel="preconnect" href="https://res.cloudinary.com">
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
-      media="print" onload="this.media='all'">
   
   <style>
-    /* ... (Tus estilos CSS se mantienen exactamente igual) ... */
     * { box-sizing: border-box; } 
     :root { 
       --platform-dark: #1a1f36; 
-      --accent-green: #28a745; 
       --accent-blue: #3b82f6;
+      --bot-teal: #30D5C8;
+      --bot-green: #00b894;
     }
     
-    html, body { height: 100%; margin: 0; padding: 0; overflow-x: hidden; }
+    html, body { height: 100%; margin: 0; padding: 0; overflow-x: hidden; font-family: 'Open Sans', sans-serif; }
 
     .bg-container {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
       background-image: url('https://res.cloudinary.com/dlnrsadbc/image/upload/v1767020899/FOTO_LOGIN_PLATAFORMA_ok3et0.avif'); 
-      background-size: cover; background-position: center; filter: brightness(0.5); z-index: -1;
-    }
-    .bg-overlay {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: linear-gradient(135deg, rgba(30, 60, 114, 0.4) 0%, rgba(26, 31, 54, 0.6) 100%); z-index: 0;
+      background-size: cover; background-position: center; filter: brightness(0.4); z-index: -1;
     }
 
-    body { 
-      font-family: 'Open Sans', sans-serif; 
-      display: flex; 
-      align-items: center; 
-      justify-content: flex-start; 
-      min-height: 100vh; 
-      padding-left: 8%; 
-      position: relative; 
-    }
-   
+    body { display: flex; align-items: center; justify-content: flex-start; min-height: 100vh; padding-left: 8%; position: relative; }
+
     .login-box {
       background: #ffffff; padding: 40px; border-radius: 24px; box-shadow: 0 30px 60px rgba(0,0,0,0.5); 
       width: 100%; max-width: 420px; text-align: center; position: relative; z-index: 10;
@@ -76,201 +50,117 @@
     .brand-logo img { width: 140px; height: 140px; border-radius: 50%; border: 6px solid white; box-shadow: 0 10px 25px rgba(0,0,0,0.2); background: white; }
 
     h1 { font-family: 'Montserrat', sans-serif; color: var(--platform-dark); font-size: 1.8em; margin: 10px 0 5px 0; }
-    h2 { font-size: 1em; color: #4b5563; margin-bottom: 20px; font-weight: 400; }
+    h2 { font-size: 1em; color: #4b5563; margin-bottom: 20px; font-weight: 400; line-height: 1.4; }
 
-    .badges-container {
-      display: flex; justify-content: center; gap: 10px; margin-bottom: 20px;
-    }
-
-    .promo-badge {
-      display: inline-block; padding: 6px 14px; border-radius: 20px;
-      font-size: 0.8em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: white;
-    }
-
-    .rocket-badge {
-      background: var(--platform-dark); margin: 0 auto 15px auto; display: table;
-      box-shadow: 0 4px 10px rgba(26, 31, 54, 0.3);
-    }
-    
-    .promo-badge.free { background-color: #1e40af !important; color: #ffffff !important; }
-    .promo-badge.premium { background-color: #15803d !important; color: #ffffff !important; }
-
-    .welcome-text { font-size: 1.05em; color: #1f2937; margin-bottom: 35px; line-height: 1.6; }
+    .promo-badge { display: inline-block; padding: 6px 14px; border-radius: 20px; font-size: 0.75em; font-weight: 700; text-transform: uppercase; color: white; margin: 0 4px; }
+    .rocket-badge { background: var(--platform-dark); display: table; margin: 0 auto 15px auto; padding: 6px 15px; }
+    .promo-badge.free { background-color: #1e40af; }
+    .promo-badge.premium { background-color: #15803d; }
 
     .btn-access {
       display: flex; align-items: center; justify-content: center; width: 100%; padding: 16px; 
       border-radius: 12px; font-size: 1.1em; font-weight: 700; text-decoration: none; transition: 0.3s;
       margin-bottom: 12px;
     }
-    
-    .btn-access:hover { background: #1f2937 !important; transform: translateY(-3px); }
 
-    .btn-primary { background-color: var(--platform-dark); color: white; box-shadow: 0 8px 15px rgba(26,31,54,0.3); }
-    .btn-primary:hover { transform: translateY(-2px); background-color: #2d364e; }
+    .btn-primary { background-color: var(--platform-dark); color: white; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 
     .btn-secondary { border: 2px solid var(--platform-dark); color: var(--platform-dark); background: transparent; }
-    .btn-secondary:hover { background: #f3f4f6; }
-    
+    .btn-secondary:hover { background: #f3f4f6; transform: translateY(-2px); }
 
-    .inspiring-quote-container {
-      position: fixed; bottom: 110px; right: 60px; max-width: 450px;
-      text-align: right; color: #ffffff; z-index: 5;
-      background-color: rgba(26, 31, 54, 0.6); padding: 25px;
-      border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    }
-
-    .inspiring-quote-container p {
-      font-family: 'Open Sans', sans-serif; font-style: italic;
-      font-size: 1.3em; line-height: 1.5; margin-bottom: 15px; font-weight: 600;
-    }
-
+    /* BOTÓN FLOTANTE HUGO BOT */
     .hugo-bot-bubble { 
-      position: fixed; bottom: 30px; right: 30px; width: 70px; height: 70px; 
+      position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px; 
       background: linear-gradient(135deg, var(--bot-teal), var(--bot-green)); 
       border-radius: 50%; display: flex; justify-content: center; align-items: center; 
-      cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
-      border: 3px solid white; z-index: 100; transition: 0.3s; 
+      cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.3); z-index: 100; border: 2px solid white;
     }
 
-    .hugo-bot-tooltip {
-      position: fixed; bottom: 45px; right: 110px;
-      background: #111827; color: #ffffff;
-      padding: 10px 20px; border-radius: 30px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.9em; font-weight: 700;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      z-index: 99; pointer-events: none;
+    .inspiring-quote-container {
+      position: fixed; bottom: 50px; right: 120px; max-width: 400px;
+      text-align: right; color: #ffffff; z-index: 5;
+      background-color: rgba(26, 31, 54, 0.6); padding: 20px; border-radius: 15px;
     }
 
-   .hugo-modal {
-    display: none; position: fixed; 
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(26, 31, 54, 0.85); z-index: 1000; 
-    justify-content: center; align-items: center; 
-    backdrop-filter: blur(10px);
-  }
-   .hugo-modal.active { display: flex !important; }
-    
-    .hugo-content {
-      width: 95%; max-width: 1200px; height: 92vh; background: white; border-radius: 25px;
-      position: relative; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.6);
-    }
-    
-    .hugo-close { position: absolute; top: 15px; right: 25px; font-size: 35px; color: #ffffff !important; cursor: pointer; z-index: 2001; }
+    .hugo-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center; backdrop-filter: blur(5px); }
+    .hugo-modal.active { display: flex; }
+    .hugo-content { width: 90%; max-width: 600px; height: 80vh; background: white; border-radius: 20px; overflow: hidden; position: relative; }
+    .hugo-close { position: absolute; top: 10px; right: 20px; font-size: 30px; cursor: pointer; color: #333; z-index: 10; }
 
-    @media (max-width: 600px) {
-      body { padding-left: 0; justify-content: center; align-items: center; }
-      .login-box { width: 90%; padding: 30px 20px; }
+    @media (max-width: 768px) {
+      body { padding-left: 0; justify-content: center; }
+      .login-box { width: 90%; }
       .inspiring-quote-container { display: none; }
-    }
-      .login-box { width: 92% !important; padding: 25px !important; }
-      .brand-logo { margin-top: -70px !important; margin-bottom: 10px !important; }
-      .brand-logo img { width: 100px !important; height: 100px !important; }
-      h1 { font-size: 1.5em !important; margin: 0 !important; }
-      h2 { font-size: 0.9em !important; margin-bottom: 15px !important; }
-      .welcome-text { font-size: 0.85em !important; margin-bottom: 20px !important; }
-      .btn-access { padding: 12px !important; font-size: 1em !important; width: 100% !important; margin-bottom: 10px !important; }
-      .inspiring-quote-container, .hugo-bot-tooltip, .rocket-badge { display: none !important; }
     }
   </style>
 </head>
 <body>
 
   <div class="bg-container"></div>
-  <div class="bg-overlay"></div>
 
- <div class="login-box">
+  <div class="login-box">
     <div class="brand-logo">
       <img src="https://res.cloudinary.com/dlnrsadbc/image/upload/w_280,h_280,c_fill,q_auto,f_auto/v1762869486/Gemini_Generated_Image_nm1t21nm1t21nm1t_s7w9li.png" alt="Hugo Alvigini">
     </div>
     
     <div class="promo-badge rocket-badge">
-      <i class="fas fa-rocket"></i> Pensando en el Emprendedor
+      <i class="fas fa-rocket" style="margin-right: 5px;"></i> Pensando en el Emprendedor
     </div>
     
-    <div class="badges-container">
-      <div class="promo-badge free"><i class="fas fa-gift"></i> Curso Gratuito</div>
-      <div class="promo-badge premium"><i class="fas fa-crown"></i> Acceso Premium</div>
+    <div style="margin-bottom: 20px;">
+      <div class="promo-badge free">Curso Gratis</div>
+      <div class="promo-badge premium">Premium</div>
     </div>
     
-    <h1>Hugo Alvigini</h1>
-    <h2>Herramientas de Productividad y Automatización</h2>
-
-   <div style="margin-top: 25px;">
+    <h1>¡Hola de nuevo!</h1>
+    <h2>Tu portal hacia la gestión inteligente</h2>
+    
+    <div style="margin-top: 10px;">
       <a href="https://hugo85ar.github.io/Plataforma-de-Cursos/" class="btn-access btn-primary">
-          <i class="fas fa-door-open" style="margin-right: 10px;"></i> Ingresar a mis Cursos
+          <i class="fas fa-door-open" style="margin-right: 10px;"></i> Ingresar al Aula Virtual
       </a>
-     <a href="#" onclick="toggleHugo(); return false;" class="btn-access btn-secondary">
+
+      <a href="#" onclick="toggleHugo(); return false;" class="btn-access btn-secondary">
           <i class="fas fa-robot" style="margin-right: 10px;"></i> Consultar a HugoBot IA
       </a>
-
-     </div>
+    </div>
     
     <p style="font-size: 0.85em; color: #6b7280; margin-top: 20px;">
-        ¿No tenés cuenta? <a href="https://hugo85ar.github.io/formulario-curso-sheets/" style="color: var(--accent-blue); font-weight: 600;">Registrate gratis acá</a>
+        ¿Aún no te registraste? <a href="https://hugo85ar.github.io/formulario-curso-sheets/" style="color: var(--accent-blue); font-weight: 600; text-decoration: none;">Crea tu cuenta gratis</a>
     </p>
-</div>
-    
-    <p class="welcome-text">
-      Tu camino hacia el éxito comienza aquí. Accede a tu contenido gratuito y premium para llevar tu emprendimiento al siguiente nivel.
-    </p>
-    
-    <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 35px;">
-      <a href="https://hugo85ar.github.io/formulario-curso-sheets/" class="btn-access" onclick="fbq('track', 'Lead');">
-          <i class="fas fa-gift" style="margin-right: 10px;"></i> ¡Quiero mi Curso Gratuito!
-      </a>
-
-       <a href="https://hugo85ar.github.io/Plataforma-de-Cursos/" class="btn-access" 
-       style="background: transparent !important; border: 2px solid var(--platform-dark); color: var(--platform-dark) !important;">
-       Ya soy alumno, Ingresar
-       </a>
-    </div>
   </div>
 
   <div class="inspiring-quote-container">
-    <p>"La verdadera recompensa de emprender no es solo económica, es la autonomía de diseñar tu propia vida."</p>
-    <p>"Personalmente, ya caminé dos senderos distintos en esto de emprender. Si me hubiesen dicho hace 10 años lo que haría hoy, creo que me hubiese reído sutilmente, dudando de mí mismo."</p>
-    <span>— Hugo Alvigini</span>
+    <p style="font-style: italic; margin-bottom: 10px;">"La autonomía de diseñar tu propia vida es la verdadera recompensa."</p>
+    <span style="font-weight: bold;">— Hugo Alvigini</span>
   </div>
 
   <div class="hugo-bot-bubble" onclick="toggleHugo()">
-    <i class="fas fa-comments" style="color: white; font-size: 30px;"></i>
-  </div>
-  <div class="hugo-bot-tooltip">
-    <span>HugoBot</span>
+    <i class="fas fa-comments" style="color: white; font-size: 28px;"></i>
   </div>
 
   <div id="hugoModal" class="hugo-modal">
-    <span class="hugo-close" onclick="toggleHugo()">&times;</span>
     <div class="hugo-content">
-      <iframe id="hugoBotFrame" data-src="https://hugo85ar.github.io/HugoBot/?v=1.1" 
-              style="width: 100%; height: 100%; border: none;"></iframe>
+      <span class="hugo-close" onclick="toggleHugo()">&times;</span>
+      <iframe id="hugoBotFrame" data-src="https://hugo85ar.github.io/HugoBot/?v=1.1" style="width: 100%; height: 100%; border: none;"></iframe>
     </div>
   </div>
 
   <script>
-   function toggleHugo() {
-    const modal = document.getElementById('hugoModal');
-    const frame = document.getElementById('hugoBotFrame');
-    if (!modal || !frame) return;
-
-    if (modal.classList.contains('active')) {
+    function toggleHugo() {
+      const modal = document.getElementById('hugoModal');
+      const frame = document.getElementById('hugoBotFrame');
+      if (modal.classList.contains('active')) {
         modal.classList.remove('active');
-        setTimeout(() => { 
-            modal.style.display = 'none';
-            frame.src = ''; 
-        }, 400);
-    } else {
-        // EVENTO PIXEL: RASTREO CUANDO ABREN EL BOT
+        frame.src = '';
+      } else {
         fbq('track', 'Contact');
-        
-        if (!frame.src) {
-            frame.src = frame.getAttribute('data-src');
-        }
-        modal.style.display = 'flex';
-        setTimeout(() => { modal.classList.add('active'); }, 10);
+        frame.src = frame.getAttribute('data-src');
+        modal.classList.add('active');
+      }
     }
-}
   </script>
+
 </body>
 </html>
