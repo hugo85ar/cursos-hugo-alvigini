@@ -19,11 +19,12 @@ A través de esta puerta de acceso, los emprendedores y profesionales interactú
 2. **Escalabilidad y Sistemas Avanzados (Formaciones de Pago):** Programas de implementación compleja, desarrollo personalizado en Google Apps Script, AppSheet y flujos automáticos de conversión corporativa.
 
 ---
-
 ## 💻 Componentes Técnicos del Repositorio
-La arquitectura frontend está optimizada para simplificar la interacción del usuario final mediante un diseño limpio y estratégico:
-* `index.html`: Portal principal de bienvenida con ruteo inteligente hacia el Aula Virtual y la interfaz del asistente programado.
-* **Lógica de HugoBOT:** Scripts optimizados en el frontend para conectar la interfaz de usuario con la base de conocimiento estructurada del bot de atención comercial.
-* **Assets e Identidad Visual:** Optimización de recursos gráficos y logos de marca para garantizar alta velocidad de carga sin perder calidad visual.
 
-*El diseño estratégico no es solo estética, es el proceso limpio que transforma un usuario en una conversión asegurada.*
+La arquitectura frontend de este portal funciona como la capa de presentación que conecta al usuario con el motor operativo de la academia:
+
+* `índice.html`: Interfaz principal de bienvenida y acceso unificado, diseñada con alta velocidad de respuesta y ruteo inteligente.
+* **Integración y Lógica Backend:** Conexión directa mediante solicitudes asincrónicas hacia un ecosistema externo automatizado. La lógica de procesamiento, las validaciones y la base de conocimiento estructurada de HugoBOT no residen en el navegador, sino que están centralizadas dinámicamente en **Google Apps Script** y un libro maestro de **Google Sheets** como base de datos.
+* `LÉAME.md`: Este archivo, que detalla la descripción estratégica, los objetivos del ecosistema y la organización técnica del proyecto.
+
+*Desarrollado con criterio estratégico en la rama `principal`. Porque el orden puertas adentro es lo que sostiene el crecimiento puertas afuera.*
