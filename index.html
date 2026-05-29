@@ -24,7 +24,6 @@
     :root { 
       --platform-dark: #1a1f36; 
       --accent-blue: #1d4ed8; 
-      --bot-purple: #4f46e5; /* Un color tecnológico e inteligente para la burbuja del Bot */
     }
     
     html, body { height: 100%; margin: 0; padding: 0; overflow-x: hidden; font-family: 'Open Sans', sans-serif; font-display: swap; }
@@ -65,7 +64,7 @@
     /* BURBUJA FLOTANTE HUGO BOT */
     .bot-bubble { 
       position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px; 
-      background-color: var(--platform-dark); /* Combina perfecto con tu marca */
+      background-color: var(--platform-dark); 
       border-radius: 50%; cursor: pointer; 
       display: flex; align-items: center; justify-content: center;
       box-shadow: 0 10px 30px rgba(0,0,0,0.3); z-index: 100; 
@@ -74,16 +73,28 @@
     .bot-bubble i { color: white; font-size: 30px; }
     .bot-bubble:hover { transform: scale(1.1); background-color: var(--accent-blue); }
 
-    /* MODAL HUGO BOT */
+    /* MODAL HUGO BOT OPTIMIZADO */
     .hugo-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1000; justify-content: center; align-items: center; backdrop-filter: blur(8px); }
     .hugo-modal.active { display: flex; }
+    
+    /* Contenedor relativo para posicionar la cruz adentro */
     .hugo-content { width: 95%; max-width: 850px; height: 85vh; background: white; border-radius: 20px; overflow: hidden; position: relative; }
-    .hugo-close { position: absolute; top: 15px; right: 20px; font-size: 35px; color: #fff; cursor: pointer; z-index: 1100; font-family: sans-serif; font-weight: bold; }
+    
+    /* Ajuste de la cruz: Ahora queda integrada en la esquina de la tarjeta blanca con fondo sutil */
+    .hugo-close { 
+      position: absolute; top: 12px; right: 15px; font-size: 28px; 
+      color: #ffffff; cursor: pointer; z-index: 1100; font-family: sans-serif; font-weight: bold;
+      background: rgba(0, 0, 0, 0.4); width: 36px; height: 36px; display: flex; 
+      align-items: center; justify-content: center; border-radius: 50%; transition: 0.2s;
+    }
+    .hugo-close:hover { background: rgba(0, 0, 0, 0.7); transform: scale(1.05); }
 
     @media (max-width: 768px) {
       body { padding-left: 0; justify-content: center; }
       .login-box { width: 92%; }
       .bg-container { background-position: 25% center; }
+      .hugo-content { height: 90vh; }
+      .hugo-close { top: 10px; right: 10px; } /* Ajuste fino para móviles */
     }
   </style>
 </head>
@@ -114,14 +125,16 @@
     </p>
   </div>
 
-  <!-- NUEVA BURBUJA DE HUGOBOT CONECTADA AL MODAL -->
+  <!-- Burbuja Flotante -->
   <a href="#" onclick="toggleHugo(); return false;" class="bot-bubble" aria-label="Consultar a HugoBot IA">
     <i class="fas fa-robot"></i>
   </a>
 
+  <!-- El Modal Estructurado -->
   <div id="hugoModal" class="hugo-modal">
-    <span class="hugo-close" onclick="toggleHugo()">&times;</span>
     <div class="hugo-content">
+      <!-- Movi la cruz dentro de hugo-content para que acompañe al cuadro blanco del bot -->
+      <span class="hugo-close" onclick="toggleHugo()">&times;</span>
       <iframe id="hugoBotFrame" data-src="https://hugo85ar.github.io/HugoBot/?v=1.1" style="width: 100%; height: 100%; border: none;" title="HugoBot Chat Inteligente"></iframe>
     </div>
   </div>
