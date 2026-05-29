@@ -1,144 +1,294 @@
 <!DOCTYPE html>
+
 <html lang="es">
+
 <head>
+
   <base target="_top">
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Hugo Alvigini | Academia</title>
+
   
+
   <link rel="icon" href="data:,">
 
+
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link rel="preconnect" href="https://res.cloudinary.com">
 
+
+
   <link rel="preload" as="image" href="https://res.cloudinary.com/dlnrsadbc/image/upload/q_auto,f_auto,w_1200/v1778871832/background_inicio_hugo_alvigini_luminoso_hevxvh.webp" fetchpriority="high">
+
   
+
   <link rel="preload" as="image" href="https://res.cloudinary.com/dlnrsadbc/image/upload/w_200,h_200,c_fill,q_auto,f_auto/v1778806879/Gemini_Generated_Image_nm1t21nm1t21nm1t_s7w9li_1_1_uos6ak.webp">
 
+
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+
   
+
   <style>
+
     * { box-sizing: border-box; } 
+
     :root { 
-      --platform-dark: #1a1f36; 
-      --accent-blue: #1d4ed8; 
-      --whatsapp-green: #25d366;
-    }
+
+  --platform-dark: #1a1f36; 
+
+  --accent-blue: #1d4ed8; /* Cambiado de #3b82f6 a un azul más denso que contrasta perfecto */
+
+  --whatsapp-green: #25d366;
+
+}
+
     
+
     html, body { height: 100%; margin: 0; padding: 0; overflow-x: hidden; font-family: 'Open Sans', sans-serif; font-display: swap; }
 
+
+
     /* FONDO OPTIMIZADO CON IMAGEN ACUMULADA */
+
     .bg-container {
+
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+
       background-color: #1a1f36;
+
       background-image: url('https://res.cloudinary.com/dlnrsadbc/image/upload/q_auto,f_auto,w_1200/v1778871832/background_inicio_hugo_alvigini_luminoso_hevxvh.webp'); 
+
       background-size: cover; background-position: center; 
+
       filter: brightness(0.9);
+
       z-index: -1;
+
     }
+
+
 
     body { display: flex; align-items: center; justify-content: flex-start; min-height: 100vh; padding-left: 8%; position: relative; }
 
+
+
     .login-box {
+
       background: #ffffff; padding: 40px; border-radius: 24px; box-shadow: 0 30px 60px rgba(0,0,0,0.5); 
+
       width: 100%; max-width: 420px; text-align: center; position: relative; z-index: 10;
+
     }
+
+
 
     .brand-logo { margin-top: -100px; margin-bottom: 15px; display: flex; justify-content: center; }
+
     .brand-logo img { width: 140px; height: 140px; border-radius: 50%; border: 6px solid white; box-shadow: 0 10px 25px rgba(0,0,0,0.2); background: white; object-fit: cover; }
 
+
+
     h1 { font-family: 'Montserrat', sans-serif; font-display: swap; color: var(--platform-dark); font-size: 1.8em; margin: 10px 0 5px 0; }
-    h2 { font-size: 1em; color: #374151; margin-bottom: 25px; font-weight: 400; }
+
+    h2 { font-size: 1em; color: #374151; margin-bottom: 25px; font-weight: 400; } /* Cambiado de #4b5563 a #374151 */
+
+
 
     .btn-access {
+
       display: flex; align-items: center; justify-content: center; width: 100%; padding: 16px; 
+
       border-radius: 12px; font-size: 1.1em; font-weight: 700; text-decoration: none; transition: 0.3s;
+
       margin-bottom: 12px;
+
     }
+
+
 
     .btn-primary { background-color: var(--platform-dark); color: white; }
+
+    /* ACCESIBILIDAD: Ajustamos el texto a un tono un poco más oscuro o fondo sutil para contraste */
+
     .btn-secondary { border: 2px solid var(--platform-dark); color: var(--platform-dark); background: transparent; }
+
     .btn-secondary:hover { background: #f3f4f6; }
 
+
+
     /* BURBUJA WHATSAPP */
+
     .wp-bubble { 
+
       position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px; 
+
       background-color: var(--whatsapp-green);
+
       border-radius: 50%; cursor: pointer; 
+
       display: flex; align-items: center; justify-content: center;
+
       box-shadow: 0 10px 30px rgba(0,0,0,0.3); z-index: 100; 
+
       transition: 0.3s; border: 2px solid white; text-decoration: none;
+
     }
+
     .wp-bubble i { color: white; font-size: 35px; }
+
     .wp-bubble:hover { transform: scale(1.1); }
 
+
+
     /* MODAL HUGO BOT */
+
     .hugo-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1000; justify-content: center; align-items: center; backdrop-filter: blur(8px); }
+
     .hugo-modal.active { display: flex; }
+
     .hugo-content { width: 95%; max-width: 850px; height: 85vh; background: white; border-radius: 20px; overflow: hidden; position: relative; }
+
     .hugo-close { position: absolute; top: 15px; right: 20px; font-size: 35px; color: #fff; cursor: pointer; z-index: 1100; font-family: sans-serif; font-weight: bold; }
 
+
+
     @media (max-width: 768px) {
+
       body { padding-left: 0; justify-content: center; }
+
       .login-box { width: 92%; }
+
       .bg-container { background-position: 25% center; }
+
     }
+
   </style>
+
 </head>
+
 <body>
+
+
 
   <div class="bg-container"></div>
 
+
+
   <div class="login-box">
+
     <div class="brand-logo">
+
       <img src="https://res.cloudinary.com/dlnrsadbc/image/upload/w_200,h_200,c_fill,q_auto,f_auto/v1778806879/Gemini_Generated_Image_nm1t21nm1t21nm1t_s7w9li_1_1_uos6ak.webp" alt="Hugo Alvigini">
+
     </div>
+
     
+
     <h1>¡Te damos la bienvenida!</h1>
+
     <h2>Accede a tu contenido y soporte</h2>
+
     
+
     <div style="margin-top: 10px;">
+
       <a href="https://hugo85ar.github.io/Plataforma-de-Cursos/" class="btn-access btn-primary">
+
           <i class="fas fa-door-open" style="margin-right: 10px;"></i> Ingresar al Aula Virtual
+
       </a>
+
+
 
       <a href="#" onclick="toggleHugo(); return false;" class="btn-access btn-secondary">
+
           <i class="fas fa-robot" style="margin-right: 10px;"></i> Consultar a HugoBot IA
+
       </a>
+
     </div>
+
     
+
     <p style="font-size: 0.85em; color: #4b5563; margin-top: 20px;">
+
         ¿No tenés cuenta? <a href="https://hugo85ar.github.io/formulario-curso-sheets/" style="color: var(--accent-blue); font-weight: 600; text-decoration: none;" aria-label="Registrate gratis en la academia">Registrate gratis</a>
+
     </p>
+
   </div>
+
+
 
   <a href="https://wa.me/5491176529179?text=%C2%A1Hola%20Hugo%21%20Vengo%20de%20la%20p%C3%A1gina%20de%20acceso%20a%20la%20Academia.%20Ya%20me%20registr%C3%A9%20al%20curso%2C%20pero%20tengo%20una%20consulta%20o%20duda%20t%C3%A9cnica." target="_blank" class="wp-bubble" aria-label="Contactar por WhatsApp">
+
     <i class="fab fa-whatsapp"></i>
-  </a>
+
+</a>
+
+  <i class="fab fa-whatsapp"></i>
+
+</a>
+
+Este es el script anterior... guardalo como script publicado por favor!
 
   <div id="hugoModal" class="hugo-modal">
+
     <span class="hugo-close" onclick="toggleHugo()">&times;</span>
+
     <div class="hugo-content">
+
       <iframe id="hugoBotFrame" data-src="https://hugo85ar.github.io/HugoBot/?v=1.1" style="width: 100%; height: 100%; border: none;" title="HugoBot Chat Inteligente"></iframe>
+
     </div>
+
   </div>
 
+
+
   <script>
+
     function toggleHugo() {
+
       const modal = document.getElementById('hugoModal');
+
       const frame = document.getElementById('hugoBotFrame');
+
       if (modal.classList.contains('active')) {
+
         modal.classList.remove('active');
+
         setTimeout(() => { modal.style.display = 'none'; frame.src = ''; }, 300);
+
       } else {
+
         frame.src = frame.getAttribute('data-src');
+
         modal.style.display = 'flex';
+
         setTimeout(() => { modal.classList.add('active'); }, 10);
+
       }
+
     }
+
   </script>
 
+
+
 </body>
-</html>
+
+</html> 
+
