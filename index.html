@@ -22,10 +22,10 @@
   <style>
     * { box-sizing: border-box; } 
     :root { 
-  --platform-dark: #1a1f36; 
-  --accent-blue: #1d4ed8; /* Cambiado de #3b82f6 a un azul más denso que contrasta perfecto */
-  --whatsapp-green: #25d366;
-}
+      --platform-dark: #1a1f36; 
+      --accent-blue: #1d4ed8; 
+      --whatsapp-green: #25d366;
+    }
     
     html, body { height: 100%; margin: 0; padding: 0; overflow-x: hidden; font-family: 'Open Sans', sans-serif; font-display: swap; }
 
@@ -50,7 +50,7 @@
     .brand-logo img { width: 140px; height: 140px; border-radius: 50%; border: 6px solid white; box-shadow: 0 10px 25px rgba(0,0,0,0.2); background: white; object-fit: cover; }
 
     h1 { font-family: 'Montserrat', sans-serif; font-display: swap; color: var(--platform-dark); font-size: 1.8em; margin: 10px 0 5px 0; }
-    h2 { font-size: 1em; color: #374151; margin-bottom: 25px; font-weight: 400; } /* Cambiado de #4b5563 a #374151 */
+    h2 { font-size: 1em; color: #374151; margin-bottom: 25px; font-weight: 400; }
 
     .btn-access {
       display: flex; align-items: center; justify-content: center; width: 100%; padding: 16px; 
@@ -59,7 +59,6 @@
     }
 
     .btn-primary { background-color: var(--platform-dark); color: white; }
-    /* ACCESIBILIDAD: Ajustamos el texto a un tono un poco más oscuro o fondo sutil para contraste */
     .btn-secondary { border: 2px solid var(--platform-dark); color: var(--platform-dark); background: transparent; }
     .btn-secondary:hover { background: #f3f4f6; }
 
@@ -117,9 +116,7 @@
 
   <a href="https://wa.me/5491176529179?text=%C2%A1Hola%20Hugo%21%20Vengo%20de%20la%20p%C3%A1gina%20de%20acceso%20a%20la%20Academia.%20Ya%20me%20registr%C3%A9%20al%20curso%2C%20pero%20tengo%20una%20consulta%20o%20duda%20t%C3%A9cnica." target="_blank" class="wp-bubble" aria-label="Contactar por WhatsApp">
     <i class="fab fa-whatsapp"></i>
-</a>
-  <i class="fab fa-whatsapp"></i>
-</a>
+  </a>
 
   <div id="hugoModal" class="hugo-modal">
     <span class="hugo-close" onclick="toggleHugo()">&times;</span>
